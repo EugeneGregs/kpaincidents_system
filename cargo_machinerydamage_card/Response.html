@@ -1,0 +1,2808 @@
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title></title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .body-container {
+            margin-top: 40pt;
+            margin-bottom: 76pt;
+        }
+
+        .items-center {
+            margin-top: 5%
+        }
+
+        textarea:focus,
+        input:focus {
+            outline: none;
+        }
+
+        .section {
+            border-bottom: 1pt solid #d4d8db;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 0;
+            width: 100%;
+            display: inline-box;
+            padding-top: 31.5pt;
+            padding-bottom: 15pt;
+            padding-left: 5%;
+            padding-right: 5%;
+            overflow: hidden;
+            background-image: url("footer_bg.png");
+            background-size: contain;
+        }
+
+        .footer-action {
+            margin-bottom: 0pt;
+            height: 33pt;
+            width: 30%;
+            color: rgb(0, 111, 241);
+            background-color: white;
+            border-radius: 0;
+            font-size: 12pt;
+            font-weight: normal;
+            float: left;
+            -webkit-appearance: none;
+        }
+
+        .footer-action:disabled {
+            color: #6f7e8f;
+        }
+
+        .footer-action-previous {
+            margin-bottom: 0pt;
+            height: 33pt;
+            width: 30%;
+            color: rgb(0, 111, 241);
+            background-color: white;
+            border-radius: 2px;
+            font-size: 12pt;
+            font-weight: normal;
+            float: left;
+            -webkit-appearance: none;
+            border: 1px solid rgba(111, 126, 143, 0.5);
+            background-image: url("previous.png");
+            background-position: center;
+            background-size: 19pt 8pt;
+            background-repeat: no-repeat;
+        }
+
+        .footer-action-previous:disabled {
+            background-image: url("previous_disabled.png");
+        }
+
+        .footer-action-next {
+            margin-bottom: 0pt;
+            height: 33pt;
+            width: 30%;
+            color: rgb(0, 111, 241);
+            background-color: white;
+            border-radius: 2px;
+            font-size: 12pt;
+            font-weight: normal;
+            float: left;
+            -webkit-appearance: none;
+            border: none;
+            background-image: url("next.png");
+            background-position: center;
+            background-size: 19pt 8pt;
+            background-repeat: no-repeat;
+            background-color: #00a1ff;
+        }
+
+        .footer-action-next:disabled {
+            background-image: url("next_disabled.png");
+        }
+
+        .footer-action-send {
+            margin-bottom: 0pt;
+            height: 33pt;
+            width: 30%;
+            color: white;
+            background-color: #5ad7a4;
+            border-radius: 2px;
+            font-size: 12pt;
+            font-weight: normal;
+            border: none;
+            font-weight: 600;
+            float: left;
+            -webkit-appearance: none;
+        }
+
+        input[type=radio] {
+            float: right;
+            width: 15pt;
+            height: 14pt;
+            background-color: white;
+            border: 1px solid transparent;
+            background-size: 100% 100%;
+            -webkit-appearance: none;
+            background-image: url("radio_unchecked.png");
+            background-repeat: no-repeat;
+        }
+
+        input[type=radio]:checked {
+            background-size: 100% 100%;
+            -webkit-appearance: none;
+            background-image: url("radio_checked.png");
+            background-repeat: no-repeat;
+        }
+
+        .comment-header {
+            padding: 10px 15px;
+            background-color: rgb(0, 161, 255);
+            font-size: 12pt;
+            font-weight: normal;
+            color: white;
+        }
+
+        .comment-input {
+            padding-top: 0pt;
+            padding-bottom: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 12pt;
+            font-weight: normal;
+            color: #32485f;
+            border: 0;
+            width: 100%;
+            outline: 0;
+            background: transparent;
+            font-family: -apple-system, sans-serif;
+        }
+
+        .comment-input::-webkit-input-placeholder {
+            color: #98a3af;
+        }
+
+        .checkbox {
+            float: right;
+            padding: 9px;
+            background-color: white;
+            border: 0px solid transparent;
+            border-radius: 0px;
+            background-size: 100% 100%;
+            -webkit-appearance: none;
+            background-image: url("checkbox_unchecked.png");
+            background-repeat: no-repeat;
+        }
+
+        .checkbox:checked {
+            background-size: 100% 100%;
+            -webkit-appearance: none;
+            background-image: url("checkbox_checked.png");
+            background-repeat: no-repeat;
+        }
+
+        /* Single select question*/
+
+        .question-title {
+            padding: 15px;
+            font-size: 12pt;
+            font-weight: normal;
+            color: rgb(50, 72, 95);
+        }
+
+        .response-label {
+            padding: 15px;
+            padding-top: 0px;
+            font-size: 12pt;
+            font-weight: normal;
+            color: rgb(50, 72, 95);
+        }
+
+        .option-div {
+            font-size: 12pt;
+            font-weight: normal;
+            color: rgb(50, 72, 95);
+            padding: 5px 0px;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            padding-top: 0pt;
+        }
+
+        .option-title {
+            padding: 15pt;
+            padding-top: 0pt;
+            font-size: 9pt;
+            font-weight: normal;
+            color: #6f7e8f;
+        }
+
+        @-webkit-keyframes refresh-rotate {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes refresh-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .select {
+            border: 1px solid #e3e3e3;
+            border-radius: 3px;
+            color: #616263;
+            overflow: hidden;
+            height: 40px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+            margin-right: 15px;
+            position: relative;
+            display: block;
+        }
+
+        select {
+            height: 40px;
+            padding: 5px;
+            padding-right: 40px;
+            background-color: #ececec;
+            border: 0;
+            outline: none;
+            font-size: 16px;
+            width: 100%;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .select:after {
+            content: "▼";
+            padding: 15px 8px;
+            position: absolute;
+            right: 10px;
+            top: -8px;
+            text-align: center;
+            width: 10%;
+            height: 100%;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+
+        select option {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100px;
+        }
+
+        .err-msg {
+            padding-left: 13pt;
+            padding-right: 13pt;
+            color: red;
+            font-size: 10pt;
+        }
+
+        .bg-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            display: none;
+            touch-action: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .page-title {
+            padding: 15px;
+            font-size: 12pt;
+            font-weight: 500;
+            color: rgb(50, 72, 95);
+        }
+
+        .first-column {
+            width: 50%;
+            font-weight: 500;
+        }
+
+        [contenteditable=true]:empty:before {
+            content: attr(placeholder);
+            color: #98a3af;
+            display: block;
+        }
+
+        /* location */
+
+        .location-title {
+            padding: 0px 15px;
+            padding-bottom: 5pt;
+            font-size: 9pt;
+            font-weight: normal;
+            color: #32495f;
+        }
+
+        .location-image {
+            padding: 15px;
+            padding-top: 10px;
+            padding-bottom: 0pt;
+            height: auto;
+            max-height: 200pt;
+            object-fit: contain;
+            width: calc(100% - 30pt);
+        }
+
+        .location-address {
+            font-size: 12pt;
+            font-weight: normal;
+            color: #32495f;
+            float: left;
+        }
+
+        /* refresh icon*/
+
+        .refresh-img {
+            width: 16pt;
+            object-fit: contain;
+            align-items: center;
+        }
+
+        .refresh-img-selected {
+            height: 16pt;
+            object-fit: contain;
+            align-self: flex-end;
+            -webkit-animation: refresh-rotate 0.75s infinite linear;
+            animation: refresh-rotate 0.75s infinite linear;
+        }
+
+        @-webkit-keyframes refresh-rotate {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes refresh-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* AttachmentList */
+
+        .section-selected-img {
+            width: 116px;
+            height: 66px;
+            object-fit: cover;
+            overflow: hidden;
+            box-shadow: 2pt 1pt 4pt 0pt rgba(0, 0, 0, 0.4);
+        }
+
+        .section-img {
+            width: 30pt;
+            height: 30pt;
+        }
+
+        .cancel-img {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            right: -5px;
+            top: -5px;
+        }
+    </style>
+
+    <script type="text/javascript" src="KASClient.js"></script>
+    <script type="text/javascript" src="layout.js"></script>
+    <script type="text/javascript">
+        // Type aliases (short names)
+        var printf = KASClient.App.printf;
+
+        var _form; // type: KASForm
+        var _strings = null;
+        var questionToAnswerMap = {};
+        var _currentPage = 1;
+        var TOTAL_PAGE = layout.pages.length;
+        var properties = {};
+        var questionPageMapping = {};
+
+        // To handle Current Location
+        var _currentLocation = {};
+        var _isAnonymous = false;
+        var _postalCode = "";
+        var _district = "";
+        var _isLocationRefreshing = false;
+        var _longAddress = "";
+        var _shortAddress = "";
+        var _isLocationNotFetched = true;
+        var _currentlocationPage;
+        var _currentlocationQuestion;
+        var LOCATION_TIMEOUT = 10000;
+
+        // To handle AttachmentType Questions
+        var attachments = {};
+        var attachmentPaths = {};
+
+        // Auto-populate Questions
+        var _currentUserInfo;
+        var _name;
+        var _phoneNumber;
+        var _responseTimeQuestion = -1;
+
+        var SUCCESS = "success";
+        var NAN = "nan";
+        var INT = "integer";
+        var MAX_VAL = "maxValue";
+        var MAX_LNT = "maxLength";
+        var MIN_VAL = "minValue";
+        var MIN_LNT = "minLength";
+        var FXD_LNT = "fixedLength";
+        var FXD_VAL = "fixedValue";
+        var SCALE = "digitsAfterDecimal";
+        var EMAIL = "email";
+        var ALPHABET_NOT_ALLOWED = "alphabetNotAllowed";
+        var NUMBERS_NOT_ALLOWED = "numNotAllowed";
+        var SPECIAL_CHAR_NOT_ALLOWED = "specialCharNotAllowed";
+        var LOWER_CASE_NOT_ALLOWED = "lowerCaseNotAllowed";
+        var UPPER_CASE_NOT_ALLOWED = "upperCaseNotAllowed";
+        var REG_EXP = "regularExp";
+        var REG_EXP_END = "regularExpEnd";
+
+        var error = false;
+        var types = [];
+        var maxCount = 2;
+        // var cameraConfig = null;
+        var cameraConfig = new KASClient.KASImageQuestionConfig();
+        cameraConfig.imageSource = KASClient.ImagePickerSource.CameraBack;
+
+
+        function onPageLoad() {
+
+            // Register for Android h/w back press event
+            KASClient.App.registerHardwareBackPressCallback(function () {
+                KASClient.App.dismissCurrentScreen();
+            });
+			
+			if(KASClient.getPlatform() == KASClient.Platform.iOS) {
+                KASClient.UI.addCSS(document.getElementById("container"), {"margin-top": "0px"});
+            }
+			
+            // Get the default form
+            KASClient.App.getLocalizedStringsAsync(function (strings, error) {
+                if (error != null) {
+                    showAlert("Error:GetFormAsync:" + error);
+                    return;
+                }
+                _strings = strings;
+
+                KASClient.Form.getFormAsync(function (form, error) {
+                    if (error != null) {
+                        showAlert("Error:GetFormAsync:" + error);
+                        return;
+                    }
+                    KASClient.App.getCurrentUserIdAsync(function (userId, error) {
+                        if (error != null) {
+                            handleError(error);
+                            return;
+                        }
+                        KASClient.App.getUsersDetailsAsync([userId], function (users, error) {
+                            if (error != null) {
+                                handleError(error);
+                                return;
+                            }
+                            _currentUserInfo = users[userId];
+                            _name = _currentUserInfo.originalName;
+                            _phoneNumber = _currentUserInfo.phoneNumber;
+                            _form = form;
+                            readProperties();
+                            autoPopulateQuestions();
+                            inflateHTML();
+                            //activateDefaultSelections();
+                        });
+                    });
+                });
+            });
+        }
+
+
+        function readProperties() {
+            var prop = _form.properties;
+            for (var i = 0; i < prop.length; i++) {
+                properties[prop[i].name] = prop[i].value;
+            }
+        }
+
+        function checkResponseValue(index) {
+            switch (_form.questions[index].type) {
+                case KASClient.KASQuestionType.SingleSelect:
+                    if (isNaN(questionToAnswerMap[index]) ||
+                        (questionToAnswerMap[index] < 0 && questionToAnswerMap[index] >= _form.questions[i].options.length))
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.Numeric:
+                    if (questionToAnswerMap[index].length == 0 || isNaN(questionToAnswerMap[index]))
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.DateTime:
+                    if (questionToAnswerMap[index] == "" || isNaN(questionToAnswerMap[index]))
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.Text:
+                case KASClient.KASQuestionType.Image:
+                    if (typeof questionToAnswerMap[index] != 'string' || questionToAnswerMap[index] == "")
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.MultiSelect:
+                    if (!KASClient.jsonIsArray(questionToAnswerMap[index]) || questionToAnswerMap[index].length == 0)
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.Location:
+                    if (_isLocationRefreshing)
+                        return true;
+                    break;
+                case KASClient.KASQuestionType.AttachmentList:
+                    if (!attachments[index] || attachments[index].length == 0)
+                        return true;
+                    break;
+            }
+            return false;
+        }
+
+        function showAlert(msg) {
+            KASClient.App.showNativeErrorMessage(msg);
+        }
+
+        function checkEndPageValidations(pageNo) {
+            pageNo--;
+            var pageError = false;
+            if (error == true) return true;
+            for (var cat = 0; cat < layout.pages[pageNo].categories.length; cat++) {
+                for (var ques = 0; ques < layout.pages[pageNo].categories[cat].questions.length; ques++) {
+                    var index = layout.pages[pageNo].categories[cat].questions[ques];
+                    removeErrorMsg(index);
+                    if (checkEndQuestionValidations(index) == true)
+                        pageError = true;
+                }
+            }
+            return pageError;
+        }
+
+
+        function checkEndQuestionValidations(index) {
+            var pageError = false;
+            if (!questionToAnswerMap[index])
+                return pageError;
+
+            if (questionToAnswerMap[index] && (_form.questions[index].type == KASClient.KASQuestionType.Text || _form.questions[index].type == KASClient.KASQuestionType.Numeric)) {
+                var errCode = endValidations(index, questionToAnswerMap[index]);
+                if (errCode != SUCCESS) {
+                    showErrorMsg(index, errCode);
+                    showAlert(errorMsgValue(index, errCode));
+                    pageError = true;
+                }
+            }
+
+            var answerKey;
+            if (typeof questionToAnswerMap[index] != 'string')
+                answerKey = JSON.stringify(questionToAnswerMap[index]);
+            else
+                answerKey = questionToAnswerMap[index];
+
+            if (layout.dependents && layout.dependents.hasOwnProperty(index) && Object.keys(layout.dependents[index]).includes(answerKey)) {
+                for (var i = 0; i < layout.dependents[index][answerKey].length; i++) {
+                    if (checkEndQuestionValidations(layout.dependents[index][answerKey][i]) == true)
+                        pageError = true;
+                }
+            }
+            return pageError;
+        }
+
+
+        function invalidateQuestion(index) {
+
+            // New check added for multiDependent
+            if (document.getElementById(index) && document.getElementById(index).style.display == "none")
+                return false;
+            if(layout.hidden && layout.hidden.includes(index))
+                return false;
+
+
+            if (layout.optional && layout.optional.includes(index)) {
+                if (questionToAnswerMap == null || questionToAnswerMap == undefined || !questionToAnswerMap.hasOwnProperty(index))
+                    return false;
+
+                // Only numeric check for non-optional
+                if (_form.questions[index].type == KASClient.KASQuestionType.Numeric) {
+
+                    if (isNaN(questionToAnswerMap[index])) {
+                        return true;
+                    }
+                }
+
+            } else {
+                if (questionToAnswerMap == null || questionToAnswerMap == undefined || !questionToAnswerMap.hasOwnProperty(index)) {
+                    return true;
+                }
+                if (checkResponseValue(index) == true) {
+                    return true;
+                }
+            }
+
+            var answerKey;
+            if (typeof questionToAnswerMap[index] != 'string')
+                answerKey = JSON.stringify(questionToAnswerMap[index]);
+            else
+                answerKey = questionToAnswerMap[index];
+
+
+            if (layout.dependents && layout.dependents.hasOwnProperty(index) && Object.keys(layout.dependents[index]).includes(answerKey)) {
+                for (var i = 0; i < layout.dependents[index][answerKey].length; i++) {
+                    if (invalidateQuestion(layout.dependents[index][answerKey][i]) == true)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+
+        function invalidatePageResponses(pageNo) {
+            pageNo--;
+            if (error == true) return true;
+            for (var cat = 0; cat < layout.pages[pageNo].categories.length; cat++) {
+                for (var ques = 0; ques < layout.pages[pageNo].categories[cat].questions.length; ques++) {
+                    var quesIndex = layout.pages[pageNo].categories[cat].questions[ques];
+                    if (invalidateQuestion(quesIndex) == true) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function submitResponse() {
+
+
+            if (TOTAL_PAGE == 1) {
+                if (checkEndPageValidations(_currentPage))
+                    return;
+            }
+            /*
+            if (layout.multipleDependents) {
+                for (var depQues in layout.multipleDependents) {
+                    if (!layout.hidden.includes(depQues))
+                        if (document.getElementById(depQues).style.display == "none" && questionToAnswerMap[depQues])
+                            delete questionToAnswerMap[depQues];
+                }
+            }
+            */
+
+            if (_currentlocationQuestion) {
+                if (!_currentLocation.hasOwnProperty("lt")) {
+                    _currentLocation["lt"] = 0.0;
+                }
+
+                if (!_currentLocation.hasOwnProperty("lg")) {
+                    _currentLocation["lg"] = 0.0;
+                }
+
+                if (!_currentLocation.hasOwnProperty("n")) {
+                    _currentLocation["n"] = "";
+                }
+                questionToAnswerMap[_currentlocationQuestion] = JSON.stringify(_currentLocation);
+            }
+
+            for (var key in attachments) {
+                if (attachments.hasOwnProperty(key)) {
+                    questionToAnswerMap[key] = JSON.stringify(attachments[key]);
+                }
+            }
+
+            for (var key in questionToAnswerMap) {
+                if (questionToAnswerMap.hasOwnProperty(key)) {
+                    var quesAnswer = questionToAnswerMap[key];
+                    if (typeof quesAnswer != 'string') {
+                        try {
+                            quesAnswer = JSON.stringify(quesAnswer);
+                        } catch (e) {
+                            quesAnswer = questionToAnswerMap[key];
+                        }
+                        questionToAnswerMap[key] = quesAnswer;
+                    }
+                }
+            }
+
+
+            KASClient.Form.sumbitFormResponse(questionToAnswerMap, null, false, true);
+        }
+
+
+        function inflateHeader() {
+            var header = document.getElementById("header");
+            KASClient.UI.clearElement(header);
+
+            var navigationBar = new KASClient.UI.KASFormPageNavigationBar();
+            navigationBar.iconPath = "logo.jpg";
+
+            //navigationBar.backAsset = "close.png";
+
+            var mainText = KASClient.UI.getElement("div", {
+                "font-size": "12pt",
+                "color": "#32495f",
+                "max-width": "300pt",
+                "font-weight": "500"
+            });
+            mainText.innerText = _strings["strMiniAppTitle"];
+
+            navigationBar.title = mainText.outerHTML;
+
+            navigationBar.backAction = function () {
+                KASClient.App.dismissCurrentScreen();
+            };
+
+            KASClient.UI.addElement(navigationBar.getView(), header);
+        }
+
+        function inflateQuestionTitle(index) {
+            var questionTitle = KASClient.UI.getElement("div", { "font-weight": "500" });
+            questionTitle.className = "question-title";
+            questionTitle.innerText = _strings[_form.questions[index].title] ? _strings[_form.questions[index].title] : _form.questions[index].title;
+            if (layout.optional && layout.optional.includes(index))
+                questionTitle.innerText = questionTitle.innerText + " (Optional)";
+            return questionTitle;
+        }
+
+        function inflateTextQuestionDiv(index) {
+
+
+            var inputDiv = KASClient.UI.getElement("div");
+            var errorElement = KASClient.UI.getElement("div");
+            errorElement.className = "err-msg";
+            errorElement.id = "error" + index;
+
+            var textQuestionInput = KASClient.UI.getElement("input");
+
+            textQuestionInput.type = "text";
+            textQuestionInput.className = "comment-input";
+            textQuestionInput.id = "input" + index;
+
+            textQuestionInput.placeholder = _strings["holder" + index] ? _strings["holder" + index] : _strings["strTapToEnter"];
+            textQuestionInput.addEventListener("input", function (event) {
+                removeChildElements(index);
+                removeErrorMsg(index);
+                var errCode = typeValidations(index, event.target.value);
+                if (errCode != SUCCESS)
+                    showErrorMsg(index, errCode);
+                else {
+                    questionToAnswerMap[index] = event.target.value;
+                }
+
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+            });
+
+            if (layout.autoPopulate && layout.autoPopulate[index]) {
+                if (questionToAnswerMap[index]) {
+                    textQuestionInput.placeholder = questionToAnswerMap[index];
+                    textQuestionInput.value = questionToAnswerMap[index];
+                }
+
+                if (layout.autoPopulate[index].editable == false) {
+                    textQuestionInput.disabled = true;
+                }
+            }
+
+            KASClient.UI.addElement(errorElement, inputDiv);
+            KASClient.UI.addElement(textQuestionInput, inputDiv);
+            return inputDiv;
+        }
+
+        function scale(num, digit) {
+            num = Math.floor(num * Math.pow(10, digit)) / Math.pow(10, digit);
+            return num.toFixed(digit)
+        }
+
+
+        function typeNumericValidations(index, value) {
+            if (isNaN(value))
+                return NAN;
+            value = parseFloat(value);
+
+            for (key in layout.validations[index]) {
+                switch (key) {
+                    case INT:
+                        if (layout.validations[index][INT]) {
+                            if (!(value % 1 == 0))
+                                return INT; // not interger
+                        }
+                        break;
+                    case MAX_VAL:
+                        if (value > layout.validations[index][MAX_VAL])
+                            return MAX_VAL;
+                        break;
+                    case SCALE:
+                        document.getElementById("input" + index).value = scale(value, layout.validations[index][SCALE]);
+                        break;
+                    case MAX_LNT:
+                        if (value.toString().length > layout.validations[index][MAX_LNT])
+                            return MAX_LNT;
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+        function endNumericValidations(index, value) {
+            for (key in layout.validations[index]) {
+                switch (key) {
+                    case MIN_VAL:
+                        if (value < layout.validations[index][MIN_VAL])
+                            return MIN_VAL;
+                        break;
+                    case MIN_LNT:
+                        if (value.toString().length < layout.validations[index][MIN_LNT])
+                            return MIN_LNT;
+                        break;
+                    case FXD_LNT:
+                        if (value.toString().length != layout.validations[index][FXD_LNT])
+                            return FXD_LNT;
+                        break;
+                    case FXD_VAL:
+                        if (value != layout.validations[index][FXD_VAL])
+                            return FXD_VAL;
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+        function typeValidations(index, value) {
+            if (value.length == 0)
+                return SUCCESS;
+            if (layout && layout.validations && layout.validations[index]) {
+                switch (_form.questions[index].type) {
+                    case KASClient.KASQuestionType.SingleSelect:
+
+                        break;
+                    case KASClient.KASQuestionType.Numeric:
+                        return typeNumericValidations(index, value);
+                    case KASClient.KASQuestionType.DateTime:
+                        break;
+                    case KASClient.KASQuestionType.Text:
+                        return typeTextValidations(index, value);
+                    case KASClient.KASQuestionType.Image:
+                        break;
+                    case KASClient.KASQuestionType.MultiSelect:
+                        break;
+                    case KASClient.KASQuestionType.Location:
+                        break;
+                    case KASClient.KASQuestionType.AttachmentList:
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+
+        function endValidations(index, value) {
+            if (layout && layout.validations && layout.validations[index]) {
+                switch (_form.questions[index].type) {
+                    case KASClient.KASQuestionType.SingleSelect:
+
+                        break;
+                    case KASClient.KASQuestionType.Numeric:
+                        return endNumericValidations(index, value);
+                    case KASClient.KASQuestionType.DateTime:
+                        break;
+                    case KASClient.KASQuestionType.Text:
+                        return endTextValidations(index, value);
+                    case KASClient.KASQuestionType.Image:
+                        break;
+                    case KASClient.KASQuestionType.MultiSelect:
+                        break;
+                    case KASClient.KASQuestionType.Location:
+                        break;
+                    case KASClient.KASQuestionType.AttachmentList:
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+        function endTextValidations(index, value) {
+            for (key in layout.validations[index]) {
+                switch (key) {
+                    case MIN_LNT:
+                        if (value.toString().length < layout.validations[index][MIN_LNT])
+                            return MIN_LNT;
+                        break;
+                    case FXD_LNT:
+                        if (value.toString().length != layout.validations[index][FXD_LNT])
+                            return FXD_LNT;
+                        break;
+                    case FXD_VAL:
+                        if (value != layout.validations[index][FXD_VAL])
+                            return FXD_VAL;
+                        break;
+                    case EMAIL:
+                        if (layout.validations[index][EMAIL] && !validateEmail(value))
+                            return EMAIL;
+                        break;
+                    case REG_EXP_END:
+                        if (!checkRegExp(value, layout.validations[index][REG_EXP_END]))
+                            return REG_EXP_END;
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+        function typeTextValidations(index, value) {
+
+            for (key in layout.validations[index]) {
+                switch (key) {
+                    case MAX_LNT:
+                        if (value.length > layout.validations[index][MAX_LNT])
+                            return MAX_LNT;
+                        break;
+                    case ALPHABET_NOT_ALLOWED:
+                        if (layout.validations[index][ALPHABET_NOT_ALLOWED] && checkAlphabetPresent(value))
+                            return ALPHABET_NOT_ALLOWED;
+                        break;
+                    case NUMBERS_NOT_ALLOWED:
+                        if (layout.validations[index][NUMBERS_NOT_ALLOWED] && checkNumberPresent(value))
+                            return NUMBERS_NOT_ALLOWED;
+                        break;
+                    case SPECIAL_CHAR_NOT_ALLOWED:
+                        if (layout.validations[index][SPECIAL_CHAR_NOT_ALLOWED] && checkSpecialCharPresent(value))
+                            return SPECIAL_CHAR_NOT_ALLOWED;
+                        break;
+                    case LOWER_CASE_NOT_ALLOWED:
+                        if (layout.validations[index][LOWER_CASE_NOT_ALLOWED] && checkLoweCase(value))
+                            return LOWER_CASE_NOT_ALLOWED;
+                        break;
+                    case UPPER_CASE_NOT_ALLOWED:
+                        if (layout.validations[index][UPPER_CASE_NOT_ALLOWED] && checkUpperCase(value))
+                            return UPPER_CASE_NOT_ALLOWED;
+                        break;
+                    case REG_EXP:
+                        if (!checkRegExp(value, layout.validations[index][REG_EXP]))
+                            return REG_EXP;
+                        break;
+                }
+            }
+            return SUCCESS;
+        }
+
+        function checkRegExp(value, regexp) {
+            var patt = new RegExp(regexp);
+            return patt.test(value);
+        }
+
+        function validateEmail(mail) {
+            return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
+        }
+
+        function checkSpecialCharPresent(value) {
+            return ((/\`|\~|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\+|\=|\[|\{|\]|\}|\||\\|\'|\<|\,|\.|\>|\?|\/|\""|\;|\:|\s/).test(value));
+
+        }
+
+        function checkNumberPresent(value) {
+            return (/\d/).test(value);
+        }
+
+        function checkAlphabetPresent(value) {
+            return (/[a-zA-Z]/).test(value);
+        }
+
+        function checkLoweCase(value) {
+            return (/[a-z]/).test(value);
+        }
+
+        function checkUpperCase(value) {
+            return (/[A-Z]/).test(value);
+        }
+
+        function inflateNumericQuestionDiv(index) {
+
+            var inputDiv = KASClient.UI.getElement("div");
+            var errorElement = KASClient.UI.getElement("div");
+            errorElement.id = "error" + index;
+            errorElement.className = "err-msg";
+            var numericQuestionInput = KASClient.UI.getElement("input");
+
+            numericQuestionInput.type = "number";
+            numericQuestionInput.className = "comment-input";
+            numericQuestionInput.id = "input" + index;
+
+            if (KASClient.getPlatform() == KASClient.Platform.iOS) {
+                KASClient.UI.addCSS(numericQuestionInput, { "padding-left": "13pt" });
+            }
+            numericQuestionInput.placeholder = _strings["holder" + index] ? _strings["holder" + index] : _strings["strTapToEnter"];
+            numericQuestionInput.addEventListener("input", function (event) {
+                removeChildElements(index);
+                removeErrorMsg(index);
+                var errCode = typeValidations(index, event.target.value);
+                if (errCode != SUCCESS)
+                    showErrorMsg(index, errCode);
+                else {
+                    if (layout && layout.validations && layout.validations[index] && layout.validations[index][INT])
+                        questionToAnswerMap[index] = parseInt(event.target.value);
+                    else questionToAnswerMap[index] = parseFloat(event.target.value);
+                }
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+            });
+
+            KASClient.UI.addElement(errorElement, inputDiv);
+            KASClient.UI.addElement(numericQuestionInput, inputDiv);
+
+            return inputDiv;
+        }
+
+        function removeErrorMsg(index) {
+            if (_form.questions[index].type != KASClient.KASQuestionType.Text && _form.questions[index].type != KASClient.KASQuestionType.Numeric)
+                return;
+
+            error = false;
+            //var inputElement = document.getElementById("input" + index);
+            var container = document.getElementById(index);
+            if(container)
+                container.style.border = "none";
+            var errorElement = document.getElementById("error" + index);
+            if (errorElement) {
+                errorElement.innerText = "";
+                KASClient.UI.clearElement(errorElement);
+            }
+        }
+
+        function showErrorMsg(index, errCode) {
+            error = true;
+            var inputElement = document.getElementById("input" + index);
+            var container = document.getElementById(index);
+            container.style.border = "0.5px solid red";
+            var errorElement = document.getElementById("error" + index);
+            errorElement.innerText = errorMsgValue(index, errCode);
+            delete questionToAnswerMap[index];
+        }
+
+        function errorMsgValue(index, errCode) {
+            switch (errCode) {
+                case MAX_VAL:
+                case MAX_LNT:
+                case MIN_VAL:
+                case MIN_LNT:
+                case FXD_LNT:
+                    return printf(_strings["err" + errCode], layout.validations[index][errCode]);
+
+                default:
+                    return _strings["err" + errCode + index] ? _strings["err" + errCode + index] : _strings["err" + errCode];
+            }
+            return _strings["errUnknown"];
+        }
+
+        function inflateImageDiv(index) {
+
+            var containerDiv = KASClient.UI.getElement("div", {
+                "margin": "0px 15px 15px 15px",
+                "display": "flex",
+                "flex-direction": "row",
+                "align-items": "center",
+                "justify-content": "flex-start"
+            });
+
+            var image = KASClient.UI.getElement("img");
+            image.className = "section-img";
+            image.id = "imageQuestion" + index;
+            image.src = "AttachmentIcon.png";
+            image.onclick = function () { selectImageQuestion(index) };
+
+
+            var cancelImage = KASClient.UI.getElement("img");
+            cancelImage.className = "cancel-img";
+            cancelImage.id = "cancelImg" + index;
+            cancelImage.src = "cancelIcon.png";
+            cancelImage.style.visibility = "hidden";
+            cancelImage.onclick = function () { cancelImageQuestion(index) };
+
+            var imageDiv = KASClient.UI.getElement("div", {
+                "position": "relative"
+            });
+
+            KASClient.UI.addElement(image, imageDiv);
+            KASClient.UI.addElement(cancelImage, imageDiv);
+            KASClient.UI.addElement(imageDiv, containerDiv);
+
+            return containerDiv;
+        }
+
+        function selectImageQuestion(index) {
+            
+            KASClient.App.showAttachmentPickerAsync([KASClient.KASAttachmentType.Image], cameraConfig.toJSON(), function (selectedAttachments, error) {
+                if (error != null) {
+                    return;
+                }
+
+                    if (selectedAttachments) {
+                        // showSelectedImage(selectedAttachments[i], index);
+                        // attachmentPaths[index].push(selectedAttachments[i].localPath);
+                        // attachments[index].push(selectedAttachments[i]);
+                        var imgElement = document.getElementById("imageQuestion" + index);
+                        imgElement.src = selectedAttachments[0].localPath;
+                        imgElement.className = "section-selected-img";
+                        questionToAnswerMap[index] = selectedAttachments[0].localPath;
+                        invalidateFooter();
+
+                        var cancelImage = document.getElementById("cancelImg" + index);
+                        cancelImage.style.visibility = "visible";  
+                    }
+                
+            });
+        }
+
+        function cancelImageQuestion(index) {
+            var imgElement = document.getElementById("imageQuestion" + index);
+            imgElement.src = "AttachmentIcon.png";
+            imgElement.className = "section-img";
+
+            questionToAnswerMap[index] = "";
+            invalidateFooter();
+
+            var cancelImage = document.getElementById("cancelImg" + index);
+            cancelImage.style.visibility = "hidden";
+        }
+
+
+        function removeChildElements(index) {
+            var answerKey = JSON.stringify(questionToAnswerMap[index]);
+            if (layout.dependents && layout.dependents[index]) {
+                var answerKey = questionToAnswerMap[index];
+                if (typeof answerKey != "string")
+                    answerKey = JSON.stringify(answerKey);
+                if (Object.keys(layout.dependents[index]).includes(answerKey)) {
+                    for (var i = 0; i < layout.dependents[index][answerKey].length; i++) {
+                        var childQuestion = document.getElementById(layout.dependents[index][answerKey][i]);
+                        if (childQuestion) {
+                            childQuestion.style.display = "none";
+                            removeChildElements(layout.dependents[index][answerKey][i]);
+                            delete questionToAnswerMap[layout.dependents[index][answerKey][i]];
+                        }
+                    }
+                }
+            }
+        }
+
+        function inflateDateQuestionDiv(index) {
+
+            var dateText = KASClient.UI.getLabel(_strings["selectDate"], {
+                "flex": "1",
+                "font-size": "16px",
+                "color": "#006ff1",
+            });
+            dateText.id = "dateLabel" + index;
+
+            var datePicker = KASClient.UI.getElement("input", {
+                "-webkit-appearance": "none",
+                "border": "none",
+                "background": "transparent",
+                "color": "transparent",
+                "width": "1px",
+                "height": "1px"
+            });
+            datePicker.id = "datePicker" + index;
+            datePicker.type = "date";
+
+
+            if (layout && layout.validations && layout.validations[index]) {
+                if (layout.validations[index]['minDate']) {
+                    var dateFormat = layout.validations[index]['minDate'];
+                    if (dateFormat == "current") {
+                        var date = new Date();
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        datePicker.setAttribute("min", year + "-" + month + "-" + day);
+                    } else {
+                        datePicker.setAttribute("min", layout.validations[index]['minDate']);
+                    }
+                }
+
+                if (layout.validations[index]['maxDate']) {
+                    var dateFormat = layout.validations[index]['maxDate'];
+                    if (dateFormat == "current") {
+                        var date = new Date();
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        datePicker.setAttribute("max", year + "-" + month + "-" + day);
+                    } else {
+                        datePicker.setAttribute("max", layout.validations[index]['maxDate']);
+                    }
+                }
+            }
+            datePicker.onchange = function () {
+                if (this.value == null || this.value == "") {
+                    this.valueAsNumber = new Date().getTime();
+                }
+                var dateText = document.getElementById("dateLabel" + index);
+                KASClient.UI.setText(dateText, KASClient.getDateString(new Date(this.valueAsNumber), true, false));
+                var newDate = new Date(this.value);
+                newDate.setHours(23, 59, 59, 59);
+                if (layout && layout.validations && layout.validations[index] && layout.validations[index]['maxDate'] == "current") {
+                    newDate.setHours(00, 00, 00, 00);
+                }
+                removeChildElements(index);
+                questionToAnswerMap[index] = newDate.getTime();
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+            };
+            dateText.onclick = function () {
+                var datePicker = document.getElementById("datePicker" + index);
+                if (KASClient.getPlatform() == KASClient.Platform.Android) {
+                    datePicker.click();
+                }
+                else {
+                    datePicker.focus();
+                }
+            };
+            var dateView = KASClient.UI.getHorizontalDiv([dateText, datePicker], { "max-width": "100%", "padding": "15px", "padding-top": "0px" });
+            return dateView;
+
+        }
+
+        function inflateDateTimeQuestionDiv(index) {
+
+            var dateText = KASClient.UI.getLabel(_strings["selectDate"], {
+                "flex": "1",
+                "font-size": "16px",
+                "color": "#006ff1"
+            });
+            dateText.id = "dateLabel" + index;
+
+            var datePicker = KASClient.UI.getElement("input", {
+                "-webkit-appearance": "none",
+                "border": "none",
+                "background": "transparent",
+                "color": "transparent",
+                "width": "1px",
+                "height": "1px"
+            });
+            datePicker.id = "datePicker" + index;
+            datePicker.type = "date";
+            if (layout && layout.validations && layout.validations[index]) {
+                if (layout.validations[index]['minDate']) {
+                    var dateFormat = layout.validations[index]['minDate'];
+                    if (dateFormat == "current") {
+                        var date = new Date();
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        datePicker.setAttribute("min", year + "-" + month + "-" + day);
+                    } else {
+                        datePicker.setAttribute("min", layout.validations[index]['minDate']);
+                    }
+                }
+
+                if (layout.validations[index]['maxDate']) {
+                    var dateFormat = layout.validations[index]['maxDate'];
+                    if (dateFormat == "current") {
+                        var date = new Date();
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        datePicker.setAttribute("max", year + "-" + month + "-" + day);
+                    } else {
+                        datePicker.setAttribute("max", layout.validations[index]['maxDate']);
+                    }
+                }
+            }
+            datePicker.onchange = function () {
+                if (this.value == null || this.value == "") {
+                    this.valueAsNumber = new Date().getTime();
+                }
+
+                var selectedDate = this.value;
+                var timePicker = document.getElementById("timePicker" + index);
+                var timeText = document.getElementById("timeText" + index);
+                var selectedTime = timePicker.value == "" ? timePicker.defaultValue : timePicker.value;
+
+
+                var newDate = new Date(selectedDate);
+                newDate.setHours(selectedTime.split(":")[0], selectedTime.split(":")[1], 59, 59);
+                if (layout && layout.validations && layout.validations[index] && layout.validations[index]['maxDate'] == "current") {
+                    if (newDate > new Date().getTime()) {
+                        timePicker.value = timePicker.defaultValue;
+                        KASClient.UI.setText(timeText, KASClient.toStringTimeObject(timePicker.value));
+                    }
+                }
+                if (layout && layout.validations && layout.validations[index] && layout.validations[index]['minDate'] == "current") {
+                    if (newDate < new Date().getTime()) {
+                        timePicker.value = timePicker.defaultValue;
+                        KASClient.UI.setText(timeText, KASClient.toStringTimeObject(timePicker.value));
+                    }
+                }
+
+                var dateText = document.getElementById("dateLabel" + index);
+                KASClient.UI.setText(dateText, KASClient.getDateString(new Date(this.valueAsNumber), true, false));
+
+                var timeView = document.getElementById("timeView" + index);
+                timeView.style.display = "block";
+
+                removeChildElements(index);
+                questionToAnswerMap[index] = newDate.getTime();
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+
+            };
+            dateText.onclick = function () {
+                var datePicker = document.getElementById("datePicker" + index);
+                if (KASClient.getPlatform() == KASClient.Platform.Android) {
+                    datePicker.click();
+                }
+                else {
+                    datePicker.focus();
+                }
+            };
+            var dateView = KASClient.UI.getHorizontalDiv([dateText, datePicker]);
+
+            var timePicker = KASClient.UI.getElement("input", {
+                "-webkit-appearance": "none",
+                "border": "none",
+                "background": "transparent",
+                "color": "transparent",
+                "width": "1px",
+                "height": "1px"
+            });
+            timePicker.id = "timePicker" + index;
+            timePicker.type = "time";
+            var d = new Date();
+            var hours = d.getHours();
+            var minutes = d.getMinutes();
+            var formattedHours = ("0" + hours).slice(-2);
+            var formattedMinutes = ("0" + minutes).slice(-2);
+            timePicker.defaultValue = formattedHours + ":" + formattedMinutes;
+            timePicker.value = timePicker.defaultValue;
+
+            var timeText = KASClient.UI.getLabel(KASClient.toStringTimeObject(timePicker.defaultValue), {
+                "flex": "1",
+                "font-size": "16px",
+                "color": "#006ff1"
+            });
+            timeText.id = "timeText" + index;
+
+            timePicker.onchange = function () {
+                var selectedDate = document.getElementById("datePicker" + index).value;
+                var selectedTime = (timePicker.value == null || timePicker.value == "") ? timePicker.defaultValue : timePicker.value;
+
+                var newDate = new Date(selectedDate);
+                newDate.setHours(selectedTime.split(":")[0], selectedTime.split(":")[1], 59, 59);
+
+                if (layout && layout.validations && layout.validations[index] && layout.validations[index]['minDate'] == "current") {
+                    if (newDate < new Date().getTime()) {
+                        var d = new Date();
+                        var hours = d.getHours();
+                        var minutes = d.getMinutes();
+                        var formattedHours = ("0" + hours).slice(-2);
+                        var formattedMinutes = ("0" + minutes).slice(-2);
+                        selectedTime = formattedHours + ":" + formattedMinutes;
+                        timePicker.value = formattedHours + ":" + formattedMinutes;
+                    }
+                }
+                if (layout && layout.validations && layout.validations[index] && layout.validations[index]['maxDate'] == "current") {
+                    if (newDate > new Date().getTime()) {
+                        var d = new Date();
+                        var hours = d.getHours();
+                        var minutes = d.getMinutes();
+                        var formattedHours = ("0" + hours).slice(-2);
+                        var formattedMinutes = ("0" + minutes).slice(-2);
+                        selectedTime = formattedHours + ":" + formattedMinutes;
+                        timePicker.value = formattedHours + ":" + formattedMinutes;
+                    }
+                }
+                selectedTime = timePicker.value == "" ? timePicker.defaultValue : timePicker.value;
+                newDate.setHours(selectedTime.split(":")[0], selectedTime.split(":")[1], 59, 59);
+
+                KASClient.UI.setText(timeText, KASClient.toStringTimeObject(selectedTime));
+
+                removeChildElements(index);
+                questionToAnswerMap[index] = newDate.getTime();
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+            };
+
+            timeText.onclick = function () {
+                if (KASClient.getPlatform() == KASClient.Platform.Android) {
+                    timePicker.click();
+                }
+                else {
+                    timePicker.focus();
+                }
+            };
+            var timeView = KASClient.UI.getHorizontalDiv([timeText, timePicker]);
+            timeView.style.display = "none";
+            timeView.id = "timeView" + index;
+            var dateTimeView = KASClient.UI.getHorizontalDiv([dateView, KASClient.UI.getSpace("10px"), timeView], { "max-width": "100%", "padding": "15px", "padding-top": "0px", "justify-content": "flex-start" });
+            return dateTimeView;
+        }
+
+
+        function inflateOptions(index, Obj) {
+            if (Obj.length == 0 && Object.keys(dependentOptionsBackup).includes(JSON.stringify(index)))
+                Obj = dependentOptionsBackup[index];
+
+            if (Obj.length == 0) {
+                var textQuestionInput = KASClient.UI.getElement("input");
+
+                textQuestionInput.type = "text";
+                textQuestionInput.className = "comment-input";
+                textQuestionInput.id = "input" + index;
+
+                textQuestionInput.placeholder = _strings["holder" + index] ? _strings["holder" + index] : _strings["strTapToEnter"];
+                textQuestionInput.addEventListener("input", function (event) {
+                    removeChildElements(index);
+                    questionToAnswerMap[index] = event.target.value;
+                    invalidateDependents(index);
+                    invalidateDependentOptions(index);
+                    invalidateFooter();
+                });
+                return textQuestionInput;
+            }
+
+            if (Obj.length == 1) {
+                var questionTitle = KASClient.UI.getElement("div");
+                questionTitle.className = "response-label";
+                questionTitle.innerText = _strings[Obj[0]] ? _strings[Obj[0]] : Obj[0];
+                removeChildElements(index);
+                questionToAnswerMap[index] = Obj[0];
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+                return questionTitle;
+            }
+
+            var selectDiv = document.createElement("div");
+            selectDiv.id = "optionList" + index;
+            selectDiv.className = "select";
+
+            var optionListDiv = document.createElement("select");
+
+            var opt = document.createElement('option');
+            opt.value = _strings["strSelect"];
+            opt.innerHTML = _strings["strSelect"];
+            opt.disabled = true;
+            opt.selected = true;
+            optionListDiv.appendChild(opt);
+
+            for (var i = 0; i < Obj.length; i++) {
+                var option = Obj[i];
+                opt = document.createElement('option');
+                opt.value = option;
+                opt.innerHTML = _strings[option] ? _strings[option] : option;
+                optionListDiv.appendChild(opt);
+            }
+
+            optionListDiv.addEventListener("change", function (event) {
+                removeChildElements(index);
+                questionToAnswerMap[index] = event.target.value;
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                if (index == 1 || index == 2)
+                    invalidateSpecialQuestion();
+                invalidateFooter();
+            });
+
+            KASClient.UI.addElement(optionListDiv, selectDiv);
+
+            return selectDiv;
+        }
+
+        function inflateDependentOptionsQuestionDiv(index, obj) {
+
+            var selectDiv = document.createElement("div");
+            selectDiv.id = "list" + index;
+            KASClient.UI.addElement(inflateOptions(index, obj), selectDiv);
+            return selectDiv;
+        }
+
+        function inflateSingleSelectDropdownQuestionDiv(index) {
+            var question = _form.questions[index];
+            var selectDiv = document.createElement("div");
+            selectDiv.className = "select";
+            var optionListDiv = document.createElement("select");
+
+            var opt = document.createElement('option');
+            opt.value = _strings["strSelect"];
+            opt.innerHTML = _strings["strSelect"];
+            opt.disabled = true;
+            opt.selected = true;
+            optionListDiv.appendChild(opt);
+
+
+            for (var i = 0; i < question.options.length; i++) {
+                var option = question.options[i];
+                opt = document.createElement('option');
+                opt.id = index + "option" + option.id;
+                opt.value = option.id;
+                opt.innerHTML = _strings[option.text] ? _strings[option.text] : option.text;
+                optionListDiv.appendChild(opt);
+
+                if (layout.defaultSelection && Object.keys(layout.defaultSelection).includes(JSON.stringify(index)) && layout.defaultSelection[index] == i) {
+                    questionToAnswerMap[index] = option.id;
+                    opt.selected = true;
+                    invalidateDependents(index);
+                    invalidateDependentOptions(index);
+                    if (index == 1 || index == 2)
+                        invalidateSpecialQuestion();
+                    invalidateFooter();
+                }
+
+            }
+
+            optionListDiv.addEventListener("change", function (event) {
+                removeChildElements(index);
+                questionToAnswerMap[index] = event.target.value;
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+            });
+
+            KASClient.UI.addElement(optionListDiv, selectDiv);
+            return selectDiv;
+        }
+
+
+        function activateDefaultSelections() {
+            if (layout.defaultSelection) {
+                for (key in layout.defaultSelection) {
+                    var question = key;
+                    var option = layout.defaultSelection[key];
+                    if (_form.questions[question] && _form.questions[question].type == KASClient.KASQuestionType.SingleSelect) {
+                        if (option >= 0 && option < _form.questions[question].options.length) {
+                            var opt = document.getElementById(question + "option" + option);
+                            if (layout.radioSingleSelect && layout.radioSingleSelect.includes(question))
+                                opt.checked = true;
+                            else
+                                opt.selected = true;
+
+                            questionToAnswerMap[question] = option;
+                            invalidateDependents(question);
+                            invalidateDependentOptions(question);
+                            invalidateFooter();
+                        }
+                    }
+                }
+            }
+        }
+
+
+        function invalidateDependents(index) {
+
+            if (layout.dependents && layout.dependents[index]) {
+
+                var answerKey = questionToAnswerMap[index];
+                if (typeof answerKey != "string")
+                    answerKey = JSON.stringify(answerKey);
+                if (Object.keys(layout.dependents[index]).includes(answerKey)) {
+                    var questionDiv = document.getElementById(index);
+                    for (var i = 0; i < layout.dependents[index][answerKey].length; i++) {
+                        questionPageMapping[layout.dependents[index][answerKey][i]] = questionPageMapping[index];
+                        var newDiv = inflateQuestionInASection(layout.dependents[index][answerKey][i]);
+                        // To Do : Not taken care if the parent question is in a table
+                        // To Do : Location Question not taken care
+                        questionDiv.parentNode.insertBefore(newDiv, questionDiv.nextSibling);
+                    }
+                }
+            }
+        }
+
+        function invalidateDependentOptions(index) {
+
+            if (layout.dependentOptions && layout.dependentOptions[index]) {
+                if (questionToAnswerMap[index] != undefined) {
+                    var answerKey = questionToAnswerMap[index];
+                    if (typeof answerKey != "string")
+                        answerKey = JSON.stringify(answerKey);
+                    removeDependentOptions(index);
+
+                    for (var ques in layout.dependentOptions[index]) {
+                        if (layout.dependentOptions[index].hasOwnProperty(ques)) {
+                            if (Object.keys(layout.dependentOptions[index][ques]).includes(answerKey)) {
+                                var selectDiv = document.getElementById("list" + ques);
+                                dependentOptionsBackup[ques] = layout.dependentOptions[index][ques][answerKey];
+                                if (selectDiv) {
+                                    KASClient.UI.clearElement(selectDiv);
+                                    if (questionToAnswerMap[ques])
+                                        delete questionToAnswerMap[ques];
+                                    KASClient.UI.addElement(inflateOptions(ques, layout.dependentOptions[index][ques][answerKey]), selectDiv);
+                                    dependentOptionsBackup[ques] = [];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function removeDependentOptions(index) {
+            if (layout.dependentOptions && layout.dependentOptions[index]) {
+                for (var ques in layout.dependentOptions[index]) {
+                    if (layout.dependentOptions[index].hasOwnProperty(ques)) {
+                        var selectDiv = document.getElementById("list" + ques);
+                        KASClient.UI.clearElement(selectDiv);
+                        KASClient.UI.addElement(inflateOptions(ques, []), selectDiv)
+                        dependentOptionsBackup[ques] = [];
+                        if (questionToAnswerMap[ques])
+                            delete questionToAnswerMap[ques];
+                        removeDependentOptions(ques);
+                    }
+                }
+            }
+        }
+
+        function inflateSingleSelectQuestionDiv(index) {
+            var question = _form.questions[index];
+
+            var optionDiv = KASClient.UI.getElement("div");
+            optionDiv.className = "option-div";
+            optionDiv.id = "optionDiv"
+
+            for (var i = 0; i < question.options.length; i++) {
+                var option = question.options[i];
+
+                var options = KASClient.UI.getElement("div");
+                options.className = "options";
+                options.value = option.id;
+
+                options.onclick = function () {
+                    removeChildElements(index);
+                    questionToAnswerMap[index] = this.value;
+                    document.getElementById(index + "option" + questionToAnswerMap[index]).checked = true;
+                    invalidateDependents(index);
+                    invalidateDependentOptions(index);
+                    invalidateFooter();
+                };
+
+                var title = KASClient.UI.getElement("label", { "width": "100%" });
+                title.innerText = _strings[option.text] ? _strings[option.text] : option.text;
+
+                var radio = KASClient.UI.getElement("input");
+                radio.type = "radio";
+                radio.name = "singleSelectuestion" + index;
+                radio.id = index + "option" + option.id;
+
+                KASClient.UI.addElement(title, options);
+                KASClient.UI.addElement(radio, options);
+
+                KASClient.UI.addElement(options, optionDiv);
+
+                if (layout.defaultSelection && Object.keys(layout.defaultSelection).includes(JSON.stringify(index)) && layout.defaultSelection[index] == i) {
+                    questionToAnswerMap[index] = options.value;
+                    radio.checked = true;
+                    invalidateDependents(index);
+                    invalidateDependentOptions(index);
+                    invalidateFooter();
+                }
+
+            }
+
+            return optionDiv;
+
+        }
+
+        function inflateTextMultiLineQuestionDiv(index) {
+
+            var textQuestionDiv = KASClient.UI.getElement("div");
+            textQuestionDiv.id = index;
+            textQuestionDiv.className = "section";
+
+
+            var errorElement = KASClient.UI.getElement("div");
+            errorElement.id = "error" + index;
+            errorElement.className = "err-msg";
+
+            var textQuestionInput;
+            textQuestionInput = KASClient.UI.getContentEditableSpan("", _strings["strTapToEnter"], { "width": "auto" }, function () {
+                removeChildElements(index);
+                removeErrorMsg(index);
+                var errCode = typeValidations(index, event.target.innerText);
+                if (errCode != SUCCESS)
+                    showErrorMsg(index, errCode);
+                else {
+                    questionToAnswerMap[index] = event.target.innerText;
+                }
+                invalidateDependents(index);
+                invalidateDependentOptions(index);
+                invalidateFooter();
+
+            });
+            textQuestionInput.id = "input" + index;
+
+            if (layout.autoPopulate && layout.autoPopulate[index]) {
+                if (questionToAnswerMap[index]) {
+                    var textQuestionInput = KASClient.UI.getContentEditableSpan(questionToAnswerMap[index], questionToAnswerMap[index], { "width": "auto" }, function () {
+                        removeChildElements(index);
+                        questionToAnswerMap[index] = event.target.innerText;
+                        invalidateDependents(index);
+                        invalidateDependentOptions(index);
+                        invalidateFooter();
+
+                    });
+                }
+                if (layout.autoPopulate[index].editable == false)
+                    textQuestionInput.style.pointerEvents = 'none';
+            }
+
+            textQuestionInput.className = "comment-input";
+            KASClient.UI.addElement(inflateQuestionTitle(index), textQuestionDiv);
+            KASClient.UI.addElement(errorElement, textQuestionDiv);
+            KASClient.UI.addElement(textQuestionInput, textQuestionDiv);
+
+            if (layout && layout.multipleDependents && Object.keys(layout.multipleDependents).includes(JSON.stringify(index)))
+                textQuestionDiv.style.display = "none";
+
+            return textQuestionDiv;
+        }
+
+        function inflateMultiSelectQuestionDiv(index) {
+
+            var optionDiv = KASClient.UI.getElement("div");
+            optionDiv.className = "option-div";
+            optionDiv.id = "optionDiv"
+
+            for (var i = 0; i < _form.questions[index].options.length; i++) {
+                var option = _form.questions[index].options[i];
+
+                var options = KASClient.UI.getElement("div");
+                options.className = "options";
+                options.value = option.id;
+                options.onclick = function () {
+                    removeChildElements(index);
+                    questionToAnswerMap[index] = [];
+                    for (var j = 0; j < _form.questions[index].options.length; j++) {
+                        if (document.getElementById(index + "MultiSelectOption" + j).checked)
+                            questionToAnswerMap[index].push(j);
+                    }
+                    invalidateDependents(index);
+                    invalidateDependentOptions(index);
+                    invalidateFooter();
+                };
+
+                var title = KASClient.UI.getElement("label", { "width": "100%" });
+                title.innerText = _strings[option.text] ? _strings[option.text] : option.text;
+
+                var checkbox = KASClient.UI.getElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "multiSelectQuestion" + _form.questions[index];
+                checkbox.id = index + "MultiSelectOption" + option.id;
+
+                KASClient.UI.addElement(title, options);
+                KASClient.UI.addElement(checkbox, options);
+
+                KASClient.UI.addElement(options, optionDiv);
+            }
+
+            return optionDiv;
+
+        }
+
+        var dependentOptionsBackup = {
+
+        };
+
+        function inflateQuestionDependingUponType(index) {
+            var newDiv = null;
+            switch (_form.questions[index].type) {
+                case KASClient.KASQuestionType.Text:
+                    if (layout.dependentOptionsQues && layout.dependentOptionsQues.includes(index)) {
+                        newDiv = inflateDependentOptionsQuestionDiv(index, []);
+                    }
+                    else
+                        newDiv = inflateTextQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.Numeric:
+                    newDiv = inflateNumericQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.SingleSelect:
+                    if (layout.radioSingleSelect && layout.radioSingleSelect.includes(index))
+                        newDiv = inflateSingleSelectQuestionDiv(index);
+                    else
+                        newDiv = inflateSingleSelectDropdownQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.Image:
+                    newDiv = inflateImageDiv(index);
+                    break;
+                case KASClient.KASQuestionType.MultiSelect:
+                    newDiv = inflateMultiSelectQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.DateTime:
+                    newDiv = inflateDateTimeQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.DateOnly:
+                    newDiv = inflateDateQuestionDiv(index);
+                    break;
+                case KASClient.KASQuestionType.Location:
+                    newDiv = inflateLocationQuestion(index);
+                    break;
+                case KASClient.KASQuestionType.AttachmentList:
+                    newDiv = inflateAttachmentDiv(index);
+                    break;
+            }
+            return newDiv;
+        }
+
+        function inflateLocationQuestion(index) {
+            // function to handle all location related 
+            questionToAnswerMap[index] = {};
+            newDiv = KASClient.UI.getElement("div");
+            newDiv.id = "locationViewDiv" + index;
+            _currentlocationPage = questionPageMapping[index];
+            _currentlocationQuestion = index;
+            return newDiv;
+        }
+
+        function autoPopulateQuestions() {
+            if (!layout.autoPopulate)
+                return;
+
+            for (var index in layout.autoPopulate) {
+                if (layout.autoPopulate.hasOwnProperty(index)) {
+                    if (!layout.autoPopulate[index].type)
+                        continue;
+
+                    switch (layout.autoPopulate[index].type) {
+                        case 'name':
+                            questionToAnswerMap[index] = _name;
+                            break;
+                        case 'phone':
+                            questionToAnswerMap[index] = _phoneNumber;
+                            break;
+                        case 'location':
+                            locationQuestion = index;
+                            break;
+                        case 'time':
+                            _responseTimeQuestion = index;
+                            break;
+                    }
+                    if (layout.autoPopulate[index].value)
+                        questionToAnswerMap[index] = layout.autoPopulate[index].value;
+                }
+            }
+        }
+
+        function checkHiddenQuestion(index) {
+            if (!layout.autoPopulate || !layout.autoPopulate[index] || !layout.autoPopulate[index].type)
+                return;
+            if (layout.autoPopulate[index].type == 'time') {
+                _responseTimeQuestion = index;
+                return true;
+            }
+
+        }
+
+
+        function inflateQuestions(pageNo) {
+
+            var page = document.getElementById("page" + pageNo);
+            pageNo--;
+
+            if (layout.pages[pageNo].isDashboard != undefined && layout.pages[pageNo].isDashboard == true) {
+            page.className = "h-100 justify-content-center align-items-center items-center";
+            var mainCard = KASClient.UI.getElement("div");
+            mainCard.className = "card m-4";
+            mainCard.backgroundColor = "#e3e3e3";
+            var mainCardHeader = KASClient.UI.getElement("div");
+            mainCardHeader.className = "card-header bg-primary";
+            var mainCardTitle = KASClient.UI.getElement("p", {
+                "color": "#fff"
+            });
+            mainCardTitle.className = "card-title";
+            KASClient.UI.addElement(mainCardTitle, mainCardHeader);
+            mainCardTitle.innerText = "Incident Category";
+            var mainCardBody = KASClient.UI.getElement("div");
+            mainCardBody.className = "card-body";
+            //    var mainView = KASClient.UI.getElement("div");
+            for(let dashElem of layout.pages[pageNo].dashElems) {
+                let cardDiv = KASClient.UI.getElement("div", {
+                   "margin-top": "5%",
+                   "max-width": "18rem",
+                   "text-align": "center"
+               });
+               cardDiv.className = "card mb-4";
+               cardDiv.onclick = function() {
+                alert("load " + dashElem.miniTitle + " page")
+               };
+               let cardBody = KASClient.UI.getElement("div");
+               cardBody.className = "card-body";
+               let cardImage = KASClient.UI.getElement("img", {
+                   "width": "50px",
+                   "text-align": "center",
+                   "height": "50px"
+               });
+               cardImage.className = "rounded-circle";
+               cardImage.src = dashElem.imgSrc;
+               let miniTitle = KASClient.UI.getElement("p", {
+                "font-family": "Segoe UI",
+                "font-size": "14px",
+                "font-weight": "600",
+                "line-height": "1.43",
+                "color": "#32485f",
+                "top": "15px",
+                "z-index": "5",
+                "width": "100%",
+                "padding-left": "20px",
+                "padding-right": "20px",
+                "text-align": "center",
+                "overflow-x": "hidden"
+               });
+               miniTitle.innerText = dashElem.miniTitle;
+               KASClient.UI.addElement(cardImage, cardBody);
+               KASClient.UI.addElement(miniTitle, cardBody);
+               KASClient.UI.addElement(cardBody, cardDiv);
+               KASClient.UI.addElement(cardDiv, mainCardBody);
+
+            }
+
+            KASClient.UI.addElement(mainCardHeader, mainCard);
+            KASClient.UI.addElement(mainCardBody, mainCard);
+            KASClient.UI.addElement(mainCard, page); 
+
+            } else {
+                if (layout.pages[pageNo].pageName != undefined && layout.pages[pageNo].pageName != "") {
+                var pageTitle = KASClient.UI.getElement("div");
+                pageTitle.className = "page-title";
+                pageTitle.innerText = _strings[layout.pages[pageNo].pageName] ? _strings[layout.pages[pageNo].pageName] : layout.pages[pageNo].pageName;
+                KASClient.UI.addElement(pageTitle, page);
+            }
+
+            for (var catIndex = 0; catIndex < layout.pages[pageNo].categories.length; catIndex++) {
+
+                var divAttributes = {};
+                if (layout.pages[pageNo].categories[catIndex].categoryBox != undefined && layout.pages[pageNo].categories[catIndex].categoryBox == true) {
+                    divAttributes = {
+                        "background-color": "white",
+                        "color": "#32485f",
+                        "font-size": "13.5pt",
+                        "margin": "16px",
+                        "margin-top": "8px",
+                        "margin-bottom": "8px",
+                        "box-shadow": "0px 0px 1px 0px rgba(0,0,0,0.12)",
+                        "border-radius": "4px"
+                    };
+                }
+                var categoryDiv = KASClient.UI.getElement("div", divAttributes);
+
+
+                var catString = layout.pages[pageNo].categories[catIndex].categoryDescription ? layout.pages[pageNo].categories[catIndex].categoryDescription : ""
+                if (catString != "") {
+                    var categoryTitle = KASClient.UI.getElement("div");
+                    categoryTitle.className = "comment-header";
+                    categoryTitle.innerText = _strings[catString] ? _strings[catString] : catString;
+                    KASClient.UI.addElement(categoryTitle, categoryDiv);
+                }
+
+                if (layout.pages[pageNo].categories[catIndex].html != undefined && layout.pages[pageNo].categories[catIndex].html != "") {
+                    var htmlDiv = KASClient.UI.getElement("div");
+                    htmlDiv.innerHTML = layout.pages[pageNo].categories[catIndex].html;
+                    KASClient.UI.addElement(htmlDiv, categoryDiv);
+                }
+
+                if (layout.pages[pageNo].categories[catIndex].categoryTable != undefined && layout.pages[pageNo].categories[catIndex].categoryTable == true) {
+
+                    var table = KASClient.UI.getElement("table", { "border": "none", "width": "100%", "overflow-wrap": "break-word", "word-wrap": "break-word", "word-break": "break-word" });
+                    for (var quesIndex = 0; quesIndex < layout.pages[pageNo].categories[catIndex].questions.length; quesIndex++) {
+                        if(layout.hidden && layout.hidden.includes(quesIndex))
+                            continue;
+                        var index = layout.pages[pageNo].categories[catIndex].questions[quesIndex];
+                        questionPageMapping[index] = pageNo + 1;
+                        var row = table.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        cell2.id = "question" + index;
+                        cell1.className = "first-column";
+                        cell1.appendChild(inflateQuestionTitle(index));
+                        var questionDiv = inflateQuestionDependingUponType(index);
+                        questionDiv.style.paddingLeft = "0px";
+                        questionDiv.style.marginTop = "15px";
+                        cell2.appendChild(questionDiv);
+                        row.id = index;
+                        if (layout && layout.multipleDependents && Object.keys(layout.multipleDependents).includes(JSON.stringify(index)))
+                            row.style.display = "none";
+
+                    }
+                    KASClient.UI.addElement(table, categoryDiv);
+                } else {
+
+                    for (var quesIndex = 0; quesIndex < layout.pages[pageNo].categories[catIndex].questions.length; quesIndex++) {
+                        if(layout.hidden && layout.hidden.includes(quesIndex))
+                            continue;
+                        var index = layout.pages[pageNo].categories[catIndex].questions[quesIndex];
+                        questionPageMapping[index] = pageNo + 1;
+
+                        KASClient.UI.addElement(inflateQuestionInASection(index), categoryDiv);
+                    }
+                }
+                KASClient.UI.addElement(categoryDiv, page);
+            }
+            }
+
+
+        }
+
+        function inflateQuestionInASection(index) {
+            if (_form.questions[index].type == KASClient.KASQuestionType.Text && (!layout.dependentOptionsQues || !layout.dependentOptionsQues.includes(index)) && (!layout.multipleDependents || !layout.multipleDependents.hasOwnProperty(index)))
+                return inflateTextMultiLineQuestionDiv(index);
+
+            var questionDiv = KASClient.UI.getElement("div");
+            questionDiv.id = index;
+            questionDiv.className = "section";
+
+            var questionHighlightDiv = KASClient.UI.getElement("div");
+            questionHighlightDiv.id = "question" + index;
+
+            KASClient.UI.addElement(inflateQuestionTitle(index), questionHighlightDiv);
+            var questionInputDiv;
+
+            questionInputDiv = inflateQuestionDependingUponType(index);
+
+            KASClient.UI.addElement(questionInputDiv, questionHighlightDiv);
+            KASClient.UI.addElement(questionHighlightDiv, questionDiv);
+
+            if (layout && layout.multipleDependents && Object.keys(layout.multipleDependents).includes(JSON.stringify(index)))
+                questionDiv.style.display = "none";
+
+            return questionDiv;
+        }
+
+
+
+        function inflateHTML() {
+
+            var container = document.getElementById("container");
+            var page;
+            // var i = layout.dashboard ? 0 : 1;
+            for ( var i = 1; i <= layout.pages.length; i++) {
+                page = KASClient.UI.getElement("div");
+                page.id = "page" + i;
+                page.style.display = "none";
+                KASClient.UI.addElement(page, container);
+                inflateQuestions(i);
+            }
+            inflateHeader();
+
+            updatePage();
+        }
+
+
+        function updatePage() {
+            for (var i = 1; i <= TOTAL_PAGE; i++) {
+                document.getElementById("page" + i).style.display = _currentPage == i ? "block" : "none";
+                document.body.style.backgroundColor = "white";
+            }
+
+            if (_currentPage == _currentlocationPage) {
+                _isLocationNotFetched = false;
+                refreshLocation();
+                inflateLocationView();
+            }
+            // footer
+            if( _currentPage > 1) 
+            inflateFooterView();
+        }
+
+
+        function showError(errorMsg) {
+            KASClient.App.showNativeErrorMessage(errorMsg);
+        }
+
+        var defaultValidations = {};
+
+        function clearInputBox(depQues) {
+            var questionDiv = document.getElementById(depQues);
+            var input = document.getElementById("input" + depQues);
+            removeErrorMsg(depQues);
+            if (questionDiv)
+                questionDiv.style.display = "none";
+            if (input) {
+                input.setAttribute("placeholder", _strings["strTapToEnter"]);
+                input.value = "";
+            }
+            if (defaultValidations[depQues])
+                layout.validations[depQues] = defaultValidations[depQues];
+            if (questionToAnswerMap[depQues])
+                delete questionToAnswerMap[depQues];
+        }
+
+        function invalidateSpecialQuestion() {
+            if (layout && layout.multipleDependents) {
+                for (var depQues in layout.multipleDependents) {
+                    clearInputBox(depQues);
+                    for (var i = 0; i < layout.multipleDependents[depQues].length; i++) {
+                        var conditionMet = true;
+                        for (var ques in layout.multipleDependents[depQues][i]['ques']) {
+                            if (questionToAnswerMap[ques] != layout.multipleDependents[depQues][i]['ques'][ques]) {
+                                conditionMet = false;
+                                break;
+                            }
+                        }
+
+                        if (conditionMet == true) {
+                            var questionDiv = document.getElementById(depQues);
+                            var input = document.getElementById("input" + depQues);
+                            if (!layout.hidden.includes(depQues) && questionDiv)
+                                questionDiv.style.display = "block";
+                            if (layout.multipleDependents[depQues][i]['ans'])
+                                questionToAnswerMap[depQues] = layout.multipleDependents[depQues][i]['ans'];
+                            if (layout.multipleDependents[depQues][i]['holder']) {
+                                _strings["holder" + depQues] = layout.multipleDependents[depQues][i]['holder'];
+                                if (input)
+                                    input.setAttribute("placeholder", _strings["holder" + depQues]);
+                            }
+                            if (layout.multipleDependents[depQues][i]['validations']) {
+                                if (!layout.validations)
+                                    layout.validations = {};
+                                if(!defaultValidations[depQues] && layout.validations[depQues])
+                                  defaultValidations[depQues] = layout.validations[depQues];
+                                else defaultValidations[depQues] = {};
+                                layout.validations[depQues] = layout.multipleDependents[depQues][i]['validations'];
+                            }
+                            break;
+                        } 
+                    }
+                }
+            }
+        }
+
+        function invalidateFooter() {
+
+            inflateFooterView();
+        }
+
+        function inflateFooterView() {
+
+            var footer = document.getElementById("footer");
+            KASClient.UI.clearElement(footer);
+
+            // setting footer view background
+            KASClient.UI.addCSS(footer, { "background-image": "url('footer_bg.png')" });
+
+            // Single Page implementation
+            if (TOTAL_PAGE == 1) {
+
+                var button = KASClient.UI.getButton(_strings["strMiniAppSendLabel"], submitResponse, {
+                    "height": "50px",
+                    "width": "calc(100% - 30px)",
+                    "line-height": "50px",
+                    "text-align": "center",
+                    "background-color": "#50d789",
+                    "color": "white",
+                    "font-size": "16px",
+                    "font-weight": "600",
+                    "border-radius": "2px",
+                });
+
+
+                if (invalidatePageResponses(_currentPage)) {
+                    button.style.pointerEvents = 'none';
+                    button.style.backgroundColor = "rgba(80, 215, 137,.5)";
+
+                } else {
+                    button.style.pointerEvents = 'auto';
+                    button.style.backgroundColor = "rgb(80, 215, 137)";
+                }
+
+                KASClient.UI.addElement(button, footer);
+
+                return;
+            }
+
+            // Previous button
+            var prevButton = KASClient.UI.getElement("input");
+            prevButton.type = "submit";
+            prevButton.className = "footer-action-previous";
+            prevButton.value = "";
+            prevButton.disabled = (_currentPage == 1);
+            if (KASClient.getPlatform() == KASClient.Platform.Android && prevButton.disabled) {
+                KASClient.UI.addCSS(prevButton, { "border": "1px solid rgba(227, 230, 233, 0.5)" });
+            }
+            prevButton.addEventListener("click", function () {
+                _currentPage -= 1;
+
+                updatePage();
+                document.body.scrollTop = 0;
+            });
+
+            // Progress view
+            var progressDiv = KASClient.UI.getElement("div", {
+                "display": "flex",
+                "align-items": "center"
+            });
+
+            progressDiv.className = "footer-action";
+
+            var progressInnerDiv = KASClient.UI.getElement("div", { "width": "100%" });
+
+            var progressText = KASClient.UI.getElement("div", {
+                "width": "100%",
+                "text-align": "center",
+                "padding-bottom": "3pt",
+                "font-size": "11pt",
+                "color": "black",
+                "font-weight": "500"
+            });
+
+            progressText.innerText = printf(_strings["strProgressTextLabel"], _currentPage, TOTAL_PAGE);
+
+            var progressBarOuterDiv = KASClient.UI.getElement("div", {
+                "width": "80%",
+                "height": "2pt",
+                "background-color": "rgba(152, 163, 175, .25)",
+                "margin-left": "10%"
+            });
+
+            var progressBarInnerDiv = KASClient.UI.getElement("div", {
+                "width": "" + (_currentPage * 100 / TOTAL_PAGE) + "%",
+                "height": "100%",
+                "background-color": "rgb(253, 158, 40)"
+            });
+
+            KASClient.UI.addElement(progressBarInnerDiv, progressBarOuterDiv);
+
+            KASClient.UI.addElement(progressText, progressInnerDiv);
+            KASClient.UI.addElement(progressBarOuterDiv, progressInnerDiv);
+
+            KASClient.UI.addElement(progressInnerDiv, progressDiv);
+
+            // Next button
+            var nextBgColor = (_currentPage == TOTAL_PAGE ? "#5ad7a4" : "#00a1ff");
+            var nextButton = KASClient.UI.getElement("input", { "background-color": nextBgColor });
+            nextButton.type = "submit";
+            nextButton.className = (_currentPage == TOTAL_PAGE ? "footer-action-send" : "footer-action-next");
+            nextButton.value = (_currentPage == TOTAL_PAGE ? _strings["strMiniAppSendLabel"] : "");
+            var nextButtonIsDisabled = false;
+            nextButtonIsDisabled = invalidatePageResponses(_currentPage);
+
+            nextButton.disabled = nextButtonIsDisabled;
+            if (KASClient.getPlatform() == KASClient.Platform.Android && nextButton.disabled) {
+                KASClient.UI.addCSS(nextButton, { "background-color": "rgb(155, 218, 253)" });
+            }
+            nextButton.addEventListener("click", function () {
+                if (checkEndPageValidations(_currentPage))
+                    return;
+
+                if (_currentPage != TOTAL_PAGE) {
+                    _currentPage += 1;
+                    updatePage();
+                    document.body.scrollTop = 0;
+                } else {
+                    submitResponse();
+                }
+            });
+
+            KASClient.UI.addElement(prevButton, footer);
+            KASClient.UI.addElement(progressDiv, footer);
+            KASClient.UI.addElement(nextButton, footer);
+        }
+
+        // Fetching address from location
+        function fetchAndPopulateAddress() {
+            if (_currentLocation.hasOwnProperty("lt") == true && _currentLocation.hasOwnProperty("lg") == true) {
+                var xhr = new XMLHttpRequest();
+                var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + _currentLocation["lt"] + "," + _currentLocation["lg"];
+                xhr.open('GET', url, true);
+                xhr.responseType = 'json';
+                xhr.timeout = LOCATION_TIMEOUT;
+                xhr.onload = function () {
+                    var status = this.status;
+                    var response;
+                    if (status == 200) {
+                        try {
+                            response = JSON.parse(this.response);
+                        }
+                        catch (e) {
+                            response = this.response;
+                        }
+                        populateAddress(response["results"][0]);
+                    }
+                    _isLocationRefreshing = false;
+                    inflateLocationView();
+                };
+                xhr.onerror = function () {
+                    _isLocationRefreshing = false;
+                    inflateLocationView();
+                }
+                xhr.send();
+            }
+            else {
+                _isLocationRefreshing = false;
+                inflateLocationView();
+            }
+        }
+
+        function populateAddress(address) {
+            _longAddress = address["formatted_address"];
+
+            var state = "";
+            _district = "";
+            _postalCode = "";
+            var address_components = address["address_components"];
+            for (var component in address_components) {
+                var types = address_components[component]["types"];
+                for (var type in types) {
+                    if (types[type] == "administrative_area_level_2") {
+                        _district = address_components[component]["long_name"];
+                    } else if (types[type] == "administrative_area_level_1") {
+                        state = address_components[component]["long_name"];
+                    } else if (types[type] == "postal_code") {
+                        _postalCode = address_components[component]["long_name"];
+                    }
+                }
+            }
+
+            _shortAddress = "";
+            if (_postalCode != "") {
+                _shortAddress += _postalCode + ", ";
+            }
+            if (_district != "") {
+                _shortAddress += _district + ", ";
+            }
+            if (state != "") {
+                _shortAddress += state;
+            }
+        }
+
+        function inflateLocationView() {
+            var locationViewDiv = document.getElementById("locationViewDiv" + _currentlocationQuestion);
+            KASClient.UI.clearElement(locationViewDiv);
+
+            // location view header
+            var locationHeader = KASClient.UI.getElement("div");
+            locationHeader.className = "location-title";
+            if (_isAnonymous) {
+                locationHeader.innerText = _strings["strMiniAppAnonymousLocationLabel"];
+            } else {
+                locationHeader.innerText = _strings["strMiniAppLocationLabel"];
+            }
+
+            //location map view
+            var locationMapView = KASClient.UI.getElement("img");
+            if (!_isAnonymous && _currentLocation.hasOwnProperty("lt") == true && _currentLocation.hasOwnProperty("lg") == true) {
+                locationMapView.src = "https://maps.googleapis.com/maps/api/staticmap?zoom=18&size=360x170&maptype=roadmap&markers=color:blue%7C%7C" + _currentLocation["lt"] + "," + _currentLocation["lg"] + "&key=AIzaSyAMfrWKiELcjgQDzNq1n3LTVMSQAXGSs6E";
+            } else {
+                locationMapView.style.display = "none";
+            }
+            locationMapView.className = "location-image";
+            locationMapView.onerror = function (event) {
+                event.target.style.display = "none";
+            }
+
+            // location address-refresh div
+            var locationAddressRefreshDiv = KASClient.UI.getElement("div", { "padding": "15pt", "padding-top": "8px", "display": "inline-flex" });
+
+            var locationAddressDiv = KASClient.UI.getElement("div", { "float": "left", "display": "flex", "flex-direction": "column", "width": "100%" });
+
+            // low network  warning text
+            var locationNetworkWarning = KASClient.UI.getElement("label", { "color": "#6f7e8f", "font-size": "9pt", "display": "none" });
+
+            // main address text
+            var locationAddress = KASClient.UI.getElement("label");
+            locationAddress.className = "location-address";
+
+            if (!(_currentLocation.hasOwnProperty("lt") == true && _currentLocation.hasOwnProperty("lg") == true)) {
+                if (!_isLocationRefreshing) {
+                    locationNetworkWarning.style.display = "block";
+                    locationNetworkWarning.innerText = _strings["strNoLocationAlertLabel"];
+                } else {
+                    locationNetworkWarning.style.display = "none";
+                    locationAddress.innerText = _strings["strMiniAppLoadingLabel"];
+                }
+            } else {
+                if (_longAddress == "" && _shortAddress == "") {
+                    locationNetworkWarning.style.display = "block";
+                    if (_isAnonymous) {
+                        locationNetworkWarning.innerText = _strings["strNoLocationLabel"];
+                    } else {
+                        locationAddress.innerText = _currentLocation["lt"] + ", " + _currentLocation["lg"];
+                        locationNetworkWarning.innerText = _strings["strMiniAppLocationNetworkWarningLabel"];
+                    }
+                } else {
+                    if (_isAnonymous) {
+                        locationAddress.innerText = _shortAddress;
+                    } else {
+                        locationAddress.innerText = _longAddress == "" ? _shortAddress : _longAddress;
+                    }
+                }
+            }
+            _currentLocation["n"] = locationAddress.innerText;
+
+            KASClient.UI.addElement(locationAddress, locationAddressDiv);
+            KASClient.UI.addElement(locationNetworkWarning, locationAddressDiv);
+
+            // refresh button
+            var refreshImg = KASClient.UI.getElement("img");
+            refreshImg.src = "refresh.png";
+
+            // refresh label
+            var refreshLabel = KASClient.UI.getElement("label", { "font-size": "9pt", "color": "#006ff1", "font-weight": "bold" });
+            refreshLabel.innerText = _strings["strRefreshLabel"];
+
+            var refreshDiv = KASClient.UI.getElement("div", { "float": "right", "display": "flex", "flex-direction": "column", "text-align": "right", "justify-content": "flex-end", "margin-left": "4pt", "min-width": "50pt" });
+            refreshDiv.addEventListener("click", function () {
+                refreshLocation();
+                inflateLocationView();
+            });
+
+            if (!_isLocationRefreshing) {
+                refreshLabel.style.display = "block";
+                refreshImg.style.display = "none";
+
+                refreshImg.className = "refresh-img";
+            } else {
+                refreshLabel.style.display = "none";
+                refreshImg.style.display = "block";
+
+                refreshImg.className = "refresh-img-selected";
+            }
+
+            KASClient.UI.addElement(refreshImg, refreshDiv);
+            KASClient.UI.addElement(refreshLabel, refreshDiv);
+
+            KASClient.UI.addElement(locationAddressDiv, locationAddressRefreshDiv);
+            KASClient.UI.addElement(refreshDiv, locationAddressRefreshDiv);
+
+            KASClient.UI.addElement(locationHeader, locationViewDiv);
+            KASClient.UI.addElement(locationMapView, locationViewDiv);
+            KASClient.UI.addElement(locationAddressRefreshDiv, locationViewDiv);
+
+            invalidateFooter();
+
+        }
+
+
+        function refreshLocation() {
+
+            if (_isLocationRefreshing == true)
+                return;
+
+            _isLocationRefreshing = true
+            KASClient.App.getCurrentDeviceLocationAsync(function (location, error) {
+                if (error != null) {
+                    _isLocationRefreshing = false;
+                    inflateLocationView();
+                    return;
+                }
+
+                _currentLocation = JSON.parse(location);
+                fetchAndPopulateAddress();
+            });
+
+            setTimeout(function () {
+                if (_isLocationRefreshing == true) {
+                    _isLocationRefreshing = false;
+                    inflateLocationView();
+                }
+            }, LOCATION_TIMEOUT);
+        }
+
+        function selectAttachmentQuestion(index) {
+            alert("here!");
+
+            // if (layout && layout.attachmentList && layout.attachmentList[index] && layout.attachmentList[index].types) {
+            //     for (var type = 0; type < layout.attachmentList[index].types.length; type++) {
+            //         switch (layout.attachmentList[index].types[type].toLowerCase()) {
+            //             case "image":
+            //                 types.push(KASClient.KASAttachmentType.Image);
+            //                 break;
+            //             case "audio":
+            //                 types.push(KASClient.KASAttachmentType.Audio);
+            //                 break;
+            //             case "video":
+            //                 types.push(KASClient.KASAttachmentType.Video);
+            //                 break;
+            //             case "document":
+            //                 types.push(KASClient.KASAttachmentType.Document);
+            //                 break;
+            //             case "imagecameraonly":
+            //                 cameraConfig = new KASClient.KASImageQuestionConfig();
+            //                 cameraConfig.imageSource = KASClient.ImagePickerSource.All;
+            //                 break;
+            //             case "imagecamerafrontonly":
+            //                 cameraConfig = new KASClient.KASImageQuestionConfig();
+            //                 cameraConfig.imageSource = KASClient.ImagePickerSource.CameraFront; // Other options: All/CameraFront
+            //                 break;
+            //             case "imagecamerabackonly":
+            //                 cameraConfig = new KASClient.KASImageQuestionConfig();
+            //                 cameraConfig.imageSource = KASClient.ImagePickerSource.CameraBack; // Other options: All/CameraFront
+            //                 break;
+            //         }
+
+            //     }
+            // }
+            if (types.length == 0)
+                types = [KASClient.KASAttachmentType.Image];
+
+
+            if (layout && layout.attachmentList && layout.attachmentList[index] && layout.attachmentList[index].maxCount) {
+                maxCount = layout.attachmentList[index].maxCount;
+            }
+
+            KASClient.App.showAttachmentPickerAsync([KASClient.KASAttachmentType.Image], cameraConfig.toJSON(), function (selectedAttachments, error) {
+                if (error != null) {
+                    return;
+                }
+
+                for (var i = 0; i < selectedAttachments.length; i++) {
+                    if (attachmentPaths[index].length < maxCount) {
+                        showSelectedImage(selectedAttachments[i], index);
+                        attachmentPaths[index].push(selectedAttachments[i].localPath);
+                        attachments[index].push(selectedAttachments[i]);
+                        invalidateFooter();
+                        var attachmentIcon = document.getElementById("AttachmentImage" + index);
+                        if (attachmentPaths[index].length >= maxCount) {
+
+                            attachmentIcon.parentElement.style.display = "none";
+                        }
+                        if (attachmentPaths[index].length != 0) {
+                            attachmentIcon.src = "AddIcon.png";
+                        } else {
+                            attachmentIcon.src = "AttachmentIcon.png";
+                        }
+                    }
+                }
+            }
+            );
+        }
+
+        function getDocumentThumbnail(attachment) {
+            var descriptionImage = KASClient.UI.getElement("div", {
+                "height": "50px",
+                "width": "100px",
+                "padding": "8px"
+            });
+            descriptionImage.className = "section-selected-img";
+            descriptionImage.id = attachment.localPath + "image";
+
+            var documentDiv = KASClient.UI.getElement("div", {
+                "color": "#98a3af",
+                "font-size": "12px",
+                "letter-spacing": "2"
+            });
+            if (attachment.type == KASClient.KASAttachmentType.Audio) {
+                documentDiv.innerHTML = "AUDIO";
+            } else if (attachment.type == KASClient.KASAttachmentType.Video) {
+                documentDiv.innerHTML = "VIDEO";
+            } else {
+                documentDiv.innerHTML = "DOCUMENT";
+            }
+
+            var documentName = KASClient.UI.getElement("div", {
+                "color": "#006ff1",
+                "font-size": "14px",
+                "padding-top": "4px",
+                "padding-bottom": "4px",
+                "white-space": "nowrap",
+                "overflow": "hidden",
+                "text-overflow": "ellipsis"
+            });
+            documentName.innerHTML = attachment.fileName;
+
+            var fileExt = attachment.fileName.split('.').pop().toLowerCase();
+            var documentIcon = KASClient.UI.getBase64Image(KASClient.UI.getAttachmentIconBase64(fileExt), {
+                "height": "12pt",
+                "width": "12pt"
+            });
+
+            var documentSize = KASClient.UI.getElement("div", {
+                "color": "#6f7e8f",
+                "font-size": "12px",
+                "margin-right": "2px"
+            });
+            documentSize.innerHTML = attachment.size / 1000 + " KB";
+            var IconSizeDiv = KASClient.UI.getHorizontalDiv([documentIcon, documentSize], { "justify-content": "flex-start" });
+
+            descriptionImage.addEventListener("click", function () {
+                KASClient.App.openAttachmentImmersiveView(attachment);
+            });
+
+            KASClient.UI.addElement(documentDiv, descriptionImage);
+            KASClient.UI.addElement(documentName, descriptionImage);
+            KASClient.UI.addElement(IconSizeDiv, descriptionImage);
+            return descriptionImage;
+
+        }
+
+        function getDocumentView(attachment) {
+            var viewModel = new KASClient.KASDocumentViewModel();
+            viewModel.enableOnTap = true;
+            viewModel.documentObj = attachment;
+            viewModel.hasStaticDocument = false;
+            viewModel.isDownloading = false;
+            viewModel.isAutoDownloadEnabled = false;
+            viewModel.allLocalPathsAvailable = KASClient.KASAttachment.hasLocalPath(attachment);
+            viewModel.allServerPathsAvailable = KASClient.KASAttachment.hasServerPath(attachment);
+            var documentViewHandler = new KASClient.UI.KASDocumentViewHandler(viewModel);
+
+            var docWrapperView = KASClient.UI.getElement("div", { "padding-left": "10px", "padding-right": "10px", "height": "100%", "position": "relative" });
+            docWrapperView.id = "docWrapper";
+            var docDiv = documentViewHandler.getDocumentView();
+            docDiv.style.margin = "0 0 10px 0";
+            KASClient.UI.addElement(docDiv, docWrapperView);
+
+            return docWrapperView;
+        }
+
+        function getAudioView(attachment) {
+            var viewModel = new KASClient.KASAudioViewModel();
+            viewModel.enableOnTap = true;
+            viewModel.audioObj = attachment;
+            viewModel.hasStaticDocument = false;
+            viewModel.isDownloading = false;
+            viewModel.isAutoDownloadEnabled = false;
+            viewModel.allLocalPathsAvailable = KASClient.KASAttachment.hasLocalPath(attachment);
+            viewModel.allServerPathsAvailable = KASClient.KASAttachment.hasServerPath(attachment);
+            var audioViewHandler = new KASClient.UI.KASAudioViewHandler(viewModel);
+
+            var audioWrapperView = KASClient.UI.getElement("div", { "padding-left": "10px", "padding-right": "10px", "height": "100%", "position": "relative" });
+            audioWrapperView.id = "audioWrapper";
+            var audioControl = audioViewHandler.getAudioView();
+            audioControl.style.margin = "0 0 10px 0";
+            KASClient.UI.addElement(audioControl, audioWrapperView);
+
+            return audioWrapperView;
+        }
+
+        function showSelectedImage(attachment, index) {
+            var descriptionImage;
+            var horizontalAttachmentDiv = document.getElementById("horizontalAttachmentDiv" + index);
+
+            if (attachment.type == KASClient.KASAttachmentType.Image) {
+                descriptionImage = KASClient.UI.getElement("img");
+                descriptionImage.className = "section-selected-img";
+                descriptionImage.id = attachment.localPath + "image";
+                descriptionImage.src = attachment.localPath;
+            } else {
+                descriptionImage = getDocumentThumbnail(attachment);
+            }
+
+
+            var cancelImage = KASClient.UI.getElement("img");
+            cancelImage.className = "cancel-img";
+            cancelImage.id = attachment.localPath;
+            cancelImage.src = "cancelIcon.png";
+            cancelImage.onclick = function () { cancelAttachmentQuestion(index) };
+
+            var imageDiv = KASClient.UI.getElement("div", {
+                "position": "relative",
+                "margin-right": "8pt",
+                "margin-top": "5pt",
+                "margin-bottom": "5pt",
+                "margin-left": "1pt"
+            });
+
+            imageDiv.id = attachment.localPath + "div";
+
+            KASClient.UI.addElement(descriptionImage, imageDiv);
+            KASClient.UI.addElement(cancelImage, imageDiv);
+
+            horizontalAttachmentDiv.insertBefore(imageDiv, horizontalAttachmentDiv.lastElementChild);
+        }
+
+        function cancelAttachmentQuestion(index) {
+            var maxCount = 5;
+
+            if (layout && layout.AttachmentList && layout.AttachmentList[index] && layout.AttachmentList[index].Max) {
+                maxCount = layout.AttachmentList[index].Max;
+            }
+
+            var value = event.target.id;
+
+            var imgDiv = document.getElementById(value + "div");
+            var horizontalAttachmentDiv = document.getElementById("horizontalAttachmentDiv" + index);
+            horizontalAttachmentDiv.removeChild(imgDiv);
+
+            var pathIndex = attachmentPaths[index].indexOf(value);
+            attachmentPaths[index].splice(pathIndex, 1);
+            attachments[index].splice(pathIndex, 1);
+            invalidateFooter();
+
+            var attachmentIcon = document.getElementById("AttachmentImage" + index);
+            if (attachmentPaths[index].length < maxCount) {
+                attachmentIcon.parentElement.style.display = "block";
+            }
+            if (attachmentPaths[index].length != 0) {
+                attachmentIcon.src = "AddIcon.png";
+            } else {
+                attachmentIcon.src = "AttachmentIcon.png";
+            }
+        }
+
+        function inflateAttachmentDiv(index) {
+
+            attachmentPaths[index] = [];
+            attachments[index] = [];
+            questionToAnswerMap[index] = [];
+
+            var attachmentIcon = KASClient.UI.getElement("img");
+            attachmentIcon.className = "section-img";
+            attachmentIcon.id = "AttachmentImage" + index;
+            attachmentIcon.src = "AttachmentIcon.png";
+            attachmentIcon.onclick = function () { selectAttachmentQuestion(index) }.bind(null, index);
+
+            var imageDiv = KASClient.UI.getElement("div", {
+                "position": "relative"
+            });
+
+            KASClient.UI.addElement(attachmentIcon, imageDiv);
+
+            var attachmentContainerDiv = KASClient.UI.getElement("div", {
+                "overflow-x": "auto",
+                "-webkit-overflow-scrolling": "touch",
+                "margin-left": "15px",
+                "margin-right": "15px",
+                "margin-bottom": "15px"
+            });
+            attachmentContainerDiv.id = "scroll-div";
+
+            var horizontalAttachmentDiv = KASClient.UI.getHorizontalDiv([imageDiv], { "justify-content": "flex-start" });
+            horizontalAttachmentDiv.id = "horizontalAttachmentDiv" + index;
+
+            KASClient.UI.addElement(horizontalAttachmentDiv, attachmentContainerDiv);
+            return attachmentContainerDiv;
+        }
+
+        // For debug
+        function dismissCurrentScreen() {
+            KASClient.App.dismissCurrentScreen();
+        };
+    </script>
+</head>
+
+<body onload="onPageLoad()">
+    <!--The description section-->
+    <div id="header">
+    </div>
+    <div id="container" class="body-container">
+    </div>
+    <!--The footer section-->
+    <div class="footer" id="footer">
+    </div>
+    </div>
+    <div id="bgView" class="bg-view">
+    </div>
+</body>
+
+</html>

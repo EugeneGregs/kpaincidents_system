@@ -1,0 +1,276 @@
+{
+  "title": "The incident has been successfully sent.",
+  "visibility": "All",
+  "expiry": 4070908800000,
+  "isAnonymous": false,
+  "isResponseAppended": true,
+  "isLocationRequested": true,
+  "questions": [
+    {
+      "title": "Name of injured person",
+      "type": "Text"
+    },
+    {
+      "title": "Injured person check number or port pass Number",
+      "type": "Text"
+    },
+    {
+      "title": "Injury Extent",
+      "type": "SingleSelect",
+      "options": [{
+          "title" : "Fatal"
+        },
+        {
+          "title" : "Reportable Accident"
+        }
+      ]
+    },
+    {
+      "title": "Parts of body injured",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "Chest"
+        },
+        {
+          "title" : "Face"
+        },
+        {
+          "title" : "Pelvis"
+        },
+        {
+          "title" : "Waist"
+        },
+        {
+          "title" : "Head"
+        },
+        {
+          "title" : "Hand"
+        },
+        {
+          "title" : "Fingers"
+        },
+        {
+          "title" : "Thigh"
+        },
+        {
+          "title" : "Legs"
+        },
+        {
+          "title" : "Knee"
+        },
+        {
+          "title" : "Non-centralised/All body parts"
+        }
+      ]
+    },
+    {
+      "title": "Injured person working area",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "KPA personnel"
+        },
+        {
+          "title" : "Port User"
+        }
+      ]
+    },
+    {
+      "title": "Injured person Designation",
+      "type": "Text"
+    },
+    {
+      "title": "Injury caused by",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "KPA personnel"
+        },
+        {
+          "title" : "Port User"
+        },
+        {
+          "title" : "Other(Specify below)"
+        }
+      ]
+    },
+    {
+      "title": "Other cause",
+      "type": "Text"
+    },
+    {
+      "title": "Injury causative agent",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "Traffic accident"
+        },
+        {
+          "title" : "Machinery"
+        },
+        {
+          "title" : "Slippery surface"
+        },
+        {
+          "title" : "Use and handling of plant tools"
+        },
+        {
+          "title" : "Fire Engine"
+        },
+        {
+          "title" : "Short circuiting"
+        },
+        {
+          "title" : "Spreader"
+        },
+        {
+          "title" : "Other(Specify below)"
+        }
+      ]
+    },
+    {
+      "title": "Other causative agent",
+      "type": "Text"
+    },
+    {
+      "title": "Location of incident",
+      "type": "SingleSelect",
+      "options": [
+        {
+            "title": "Berth 1"
+        },
+        {
+          "title": "Berth 2"
+        },
+        {
+            "title": "Berth 3"
+        },
+        {
+            "title": "Berth 4/5"
+        },
+        {
+            "title": "Berth 6"
+        },
+        {
+            "title": "Berth 7"
+        },
+        {
+            "title": "Berth 8"
+        },
+        {
+            "title": "Berth 9"
+        },
+        {
+            "title": "Berth 10"
+        },
+        {
+            "title": "Berth 11"
+        },
+        {
+            "title": "Berth 12"
+        },
+        {
+            "title": "Berth 13"
+        },
+        {
+            "title": "Berth 14"
+        },
+        {
+            "title": "Berth 15"
+        },
+        {
+            "title": "Berth 16"
+        },
+        {
+            "title": "Fire Station Kapenguria"
+        },
+        {
+            "title": "ICD Nairobi"
+        },
+        {
+            "title": "Junction at no. 7 CC Offices"
+        },
+        {
+            "title": "K section Bus-stop"
+        },
+        {
+            "title": "KPA HQ"
+        },
+        {
+            "title": "Kilindini Road"
+        },
+        {
+            "title": "Kipevu Bridge"
+        },
+        {
+            "title": "Main gate"
+        },
+        {
+            "title": "Makupa Transit Gate"
+        },
+        {
+            "title": "Marine Operations"
+        },
+        {
+            "title": "NSA Fuel Station"
+        },
+        {
+            "title": "Outside Port Area"
+        },
+        {
+            "title": "Permanent Way Workshop"
+        },
+        {
+            "title": "Railway crossing towards gate 18"
+        },
+        {
+            "title": "Road to Toyo Terminal II"
+        },
+        {
+            "title": "SGR & RMG Junction"
+        },
+        {
+            "title": "Terminal Engineering"
+        },
+        {
+            "title": "Terminal I yard"
+        },
+        {
+            "title": "Terminal II Area"
+        },
+        {
+            "title": "Weigh bridge no. 7"
+        }
+      ]
+    },
+    {
+      "title": "Specific Location",
+      "type": "Text"
+    },
+    {
+      "title": "Brief Summary of Incident",
+      "type": "Text"
+    },
+    {
+      "title": "Incident Date and Time",
+      "type": "DateTime"
+    },
+    {
+      "title": "Attachment",
+      "type": "Image"
+    },
+    {
+      "title": "Name",
+      "type": "Text"
+    },
+    {
+      "title": "Phone",
+      "type": "Text"
+    },
+    {
+      "title": "Location",
+      "type": "Location"
+    }
+ ]
+}

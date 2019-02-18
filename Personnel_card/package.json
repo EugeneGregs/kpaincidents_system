@@ -1,0 +1,38 @@
+{
+  "id": "com.m2m.kpa.personnelincidents",
+  "schemaVersion": 1,
+  "displayName": "Personnel Incidents",
+  "providerName": "M2M",
+  "icon": "logo.png",
+  "version": "1",
+  "minorVersion": "2",
+  "appModel": "AppModel.json",
+  "description": "Creating an incidents reporting system",
+  "thankYouMessage": "Thank you for Reporting the incident. We have notified the health and safety team.",
+  "dials": {
+	"isLocalised" : false,
+    "isPinned": false
+  },
+  "actionScope": "Group",
+  "views": {
+    "ChatCanvasCardView": {
+      "showReceipts": true,
+      "showLikes": false,
+      "showComments": false,
+      "labelResponseSending": "Details Submitting",
+      "labelResponseFailed": "Details Submission failed, please try again",
+      "labelResponded": "Incident reported, Please wait for response",
+      "isResponseEditable": false
+    },
+    "CreationView": {
+      "sourceLocation": "Response.html",
+      "showNativeToolbar": false,
+      "backDialogVisibility": true,
+      "backDialogTitle": "Incident Card",
+      "backDialogDescription": "Are you sure you want to discard your response?"
+    },
+    "DiscoverView": {
+      "icon": "logo.png"
+    }
+  }
+}

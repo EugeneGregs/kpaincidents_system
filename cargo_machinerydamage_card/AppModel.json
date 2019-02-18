@@ -1,0 +1,270 @@
+{
+  "title": "The incident has been successfully sent.",
+  "visibility": "All",
+  "expiry": 4070908800000,
+  "isAnonymous": false,
+  "isResponseAppended": true,
+  "isLocationRequested": true,
+  "questions": [
+    {
+      "title": "category",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "Damage to Cargo/Container"
+        },
+        {
+          "title" : "Damage to Machinery/ Equipment"
+        },
+        {
+          "title" : "Damage to Ship/Structure"
+        },
+        {
+          "title" : "Damage to Cars/Pickups/Import Vehicle"
+        },
+        {
+          "title" : "Damage to Trucks/Bus"
+        },
+        {
+          "title" : "Damage to RVR Locomotive"
+        }
+      ]
+    },
+    {
+      "title": "Equipment Involved",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "Private Lorry/Truck"
+        },
+        {
+          "title" : "Gantry Crane"
+        },
+        {
+          "title" : "Terminal Tractor"
+        },
+        {
+          "title" : "Private Vehicle/Pick up"
+        },
+        {
+          "title" : "Ships Structure"
+        },
+        {
+          "title" : "Harbour Mobile Crane"
+        },
+        {
+          "title" : "Forklift"
+        },
+        {
+          "title" : "Top Loader"
+        },
+        {
+          "title" : "Tugboat"
+        },
+        {
+          "title" : "Grab"
+        },
+        {
+          "title" : "Container"
+        },
+        {
+          "title" : "Steel pipes & Billets"
+        },
+        {
+          "title" : "Staff Bus & Van"
+        },
+        {
+          "title" : "RVR Locomotive Engine"
+        },
+        {
+          "title" : "Royal Bus"
+        },
+        {
+          "title" : "Empty Container Handler"
+        },
+        {
+          "title" : "National Oil Petrol Station Pump"
+        },
+        {
+          "title" : "Fire Enginee"
+        },
+        {
+          "title" : "Combine Harvester"
+        },
+        {
+          "title" : "Caterpillar"
+        },
+        {
+          "title" : "Bulldozer Tractor"
+        }
+      ]
+    },
+    {
+      "title": "Equipment Marks/Numbers",
+      "type": "Text"
+    },
+    {
+      "title": "Name of operator involved",
+      "type": "Text"
+    },
+    {
+      "title": "Operator Check number or port pass Number",
+      "type": "Text"
+    },
+    {
+      "title": "Operator designation",
+      "type": "Text"
+    },
+    {
+      "title": "Operator working area",
+      "type": "SingleSelect",
+      "options": [
+        {
+          "title" : "KPA personnel"
+        },
+        {
+          "title" : "Port User"
+        }
+      ]
+    },
+    {
+      "title": "Location of incident",
+      "type": "SingleSelect",
+      "options": [
+        {
+            "title": "Berth 1"
+        },
+        {
+          "title": "Berth 2"
+        },
+        {
+            "title": "Berth 3"
+        },
+        {
+            "title": "Berth 4/5"
+        },
+        {
+            "title": "Berth 6"
+        },
+        {
+            "title": "Berth 7"
+        },
+        {
+            "title": "Berth 8"
+        },
+        {
+            "title": "Berth 9"
+        },
+        {
+            "title": "Berth 10"
+        },
+        {
+            "title": "Berth 11"
+        },
+        {
+            "title": "Berth 12"
+        },
+        {
+            "title": "Berth 13"
+        },
+        {
+            "title": "Berth 14"
+        },
+        {
+            "title": "Berth 15"
+        },
+        {
+            "title": "Berth 16"
+        },
+        {
+            "title": "Fire Station Kapenguria"
+        },
+        {
+            "title": "ICD Nairobi"
+        },
+        {
+            "title": "Junction at no. 7 CC Offices"
+        },
+        {
+            "title": "K section Bus-stop"
+        },
+        {
+            "title": "KPA HQ"
+        },
+        {
+            "title": "Kilindini Road"
+        },
+        {
+            "title": "Kipevu Bridge"
+        },
+        {
+            "title": "Main gate"
+        },
+        {
+            "title": "Makupa Transit Gate"
+        },
+        {
+            "title": "Marine Operations"
+        },
+        {
+            "title": "NSA Fuel Station"
+        },
+        {
+            "title": "Outside Port Area"
+        },
+        {
+            "title": "Permanent Way Workshop"
+        },
+        {
+            "title": "Railway crossing towards gate 18"
+        },
+        {
+            "title": "Road to Toyo Terminal II"
+        },
+        {
+            "title": "SGR & RMG Junction"
+        },
+        {
+            "title": "Terminal Engineering"
+        },
+        {
+            "title": "Terminal I yard"
+        },
+        {
+            "title": "Terminal II Area"
+        },
+        {
+            "title": "Weigh bridge no. 7"
+        }
+      ]
+    },
+    {
+      "title": "Specific Location",
+      "type": "Text"
+    },
+    {
+      "title": "Brief Summary of Incident",
+      "type": "Text"
+    },
+    {
+      "title": "Incident Date and Time",
+      "type": "DateTime"
+    },
+    {
+      "title": "Attachment",
+      "type": "Image"
+    },
+    {
+      "title": "Name",
+      "type": "Text"
+    },
+    {
+      "title": "Phone",
+      "type": "Text"
+    },
+    {
+      "title": "Location",
+      "type": "Location"
+    }
+ ]
+}
